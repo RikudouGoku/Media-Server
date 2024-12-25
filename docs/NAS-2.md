@@ -817,6 +817,7 @@ multiple ways to go about the OS:
 </div>
 
 
+
 13. **(Will show you how to connect with Symfonium but procedure is the
 same for the other clients basically) **Go to the settings in Symfonium,
 click on the settings button to the bottom right, "manage media
