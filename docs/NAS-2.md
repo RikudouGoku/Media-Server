@@ -513,42 +513,31 @@ multiple ways to go about the OS:
     upgrade" afterwards.
 2.  Type in "wget -O -
     https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install
-    \| sudo bash" in the terminal, WAIT.
-3.  ![](Pictures/100000000000065700000241EB706891.png){width="6.05in"
-    height="2.15in"}Open a new page in your browser and type in the IP
+    \| sudo bash" in the terminal, WAIT.![OMV Install01](./images/100000000000065700000241EB706891.png)
+3.  Open a new page in your browser and type in the IP
     address of your Pi, you should see the login page for OMV, if not
     immediate wait a few minutes and check your router Web UI to see if
-    the Pi is still on and active.
-4.  ![](Pictures/1000000000000529000004F899A64592.png){width="6.05in"
-    height="5.8256in"}Login with user name "****admin****" and
-    "****openmediavault****" for password.****
-5.  ![](Pictures/1000000000000ED50000056DEA0FB079.png){width="6.05in"
-    height="2.2134in"}****Since OMV uses the same port (80) as Pihole
+    the Pi is still on and active.![OMV Install02](./images/1000000000000529000004F899A64592.png)
+4.  Login with user name "****admin****" and
+    "****openmediavault****" for password.****![OMV Install03](./images/1000000000000ED50000056DEA0FB079.png)
+5.  ****Since OMV uses the same port (80) as Pihole
     for the Web UI we need to change it so it does not conflict with
     pihole.****
 6.  ****SSH into the terminal "ssh
     ****[**root@IPADDRESS**](mailto:root@IPADDRESS)****" (using the IP
     address of the Pi).****
-7.  Type in "omv-firstaid" and select 3 "configure workbench"
-8.  ![](Pictures/100000000000056E000002A57C3D0A0E.png){width="6.05in"
-    height="2.9457in"}Change the port to 8080.
-9.  ![](Pictures/100000000000059300000190A5F22408.png){width="6.8244in"
-    height="1.6945in"}Then use the link it gives you to go to the Web UI
-    for OMV.
-10. ![](Pictures/10000000000003DE000001166A7C15EB.png){width="6.3236in"
-    height="1.448in"}Change the password for your admin user in
-    OpenMediaVault (and activate dark mode if you want to).
-11. ![](Pictures/1000000000000C5700000361A8C34D03.png){width="6.05in"
-    height="1.6563in"}The SSH port has been changed back to the default
+7.  Type in "omv-firstaid" and select 3 "configure workbench"![OMV Install04](./images/100000000000056E000002A57C3D0A0E.png)
+8.  Change the port to 8080.![OMV Install05](./images/100000000000059300000190A5F22408.png)
+9.  Then use the link it gives you to go to the Web UI
+    for OMV.![OMV Install06](./images/10000000000003DE000001166A7C15EB.png)
+10. Change the password for your admin user in
+    OpenMediaVault (and activate dark mode if you want to).![OMV Install07](./images/1000000000000C5700000361A8C34D03.png)
+11. The SSH port has been changed back to the default
     22, to change it go to "services" and "SSH" and then input the port
-    there.
-12. ![](Pictures/1000000000000E95000005106D50617F.png){width="6.05in"
-    height="2.1in"}Then apply
+    there.![OMV Install08](./images/1000000000000E95000005106D50617F.png)
+12. Then apply ![OMV Install09](./images/1000000000000C4E000000CFA795FCEC.png)
 
-![](Pictures/1000000000000C4E000000CFA795FCEC.png){width="6.05in"
-height="0.3972in"}
-
-1.  Go to the next chapter "Install docker"
+13. Go to the next chapter "Install docker"
 
 # []{#anchor-10}Install Docker
 
