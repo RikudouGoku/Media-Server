@@ -1,7 +1,17 @@
 # Table of Contents
 - [Media server part 2, Orange Pi 5 Plus](#media-server-part-2-orange-pi-5-plus)
-- [Preparation](#Preparation)
-- [Installation/First Boot From SD Card] (#Installation/First Boot From SD Card)
+- [Preparation](#preparation)
+- [Installation/First Boot From SD Card](#installationfirst-boot-from-sd-card)
+  - [Boot from NVME SSD](#boot-from-nvme-ssd)
+  - [Change SSH Port (before OpenMediaVault Installation)](#change-ssh-port-before-openmediavault-installation)
+  - [Permanent IP Address](#permanent-ip-address)
+  - [Install Pi-hole (DNS)](#install-pi-hole-dns)
+  - [Install PiVPN](#install-pivpn)
+  - [Install OpenMediaVault](#install-openmediavault)
+  - [Install Docker](#install-docker)
+  - [File Transfer and Synchronization](#file-transfer-and-synchronization)
+  - [Install Navidrome](#install-navidrome)
+  - [What to install next?](#what-to-install-next)
 
 
 ## Media server part 2, Orange Pi 5 Plus
@@ -191,7 +201,7 @@ multiple ways to go about the OS:
     that you want to boot from.
 
 
-# []{#anchor-4}Boot from NVME SSD
+## Boot from NVME SSD
 
 1.  Follow the official Manual (
     <https://drive.google.com/file/d/1qJcShkcYlMZdgdr5HVqTmpcYxUYuP-aE/view>
@@ -241,7 +251,7 @@ multiple ways to go about the OS:
 17. Go to the "Change SSH Port (before OpenMediaVault Installation"
     chapter next.
 
-# []{#anchor-5}Change SSH Port (before OpenMediaVault Installation)
+## Change SSH Port (before OpenMediaVault Installation)
 
 1.  Change the port used for SSH to improve security, pick a random
     number between 49152--65535.
@@ -260,7 +270,7 @@ multiple ways to go about the OS:
     one REMEMBER IT (save it in a password manager).
 6.  Go to the "Permanent IP Address" chapter next.
 
-# []{#anchor-6}**Permanent IP Address** 
+## Permanent IP Address 
 
 1.  Go to the router web ui page and set a permanent IP address for the
     Pi so it does not change. Every brand is different, so look
@@ -272,7 +282,7 @@ multiple ways to go about the OS:
     (with the PORT being the SSH port you randomly picked).
 3.  Go to the next chapter "Install Pi-hole (DNS)"
 
-# []{#anchor-7}Install Pi-hole (DNS)
+## Install Pi-hole (DNS)
 
 1.  Type in "ip addr" in the terminal, check which one is in use between
     the interfaces (ignore the first "lo"), here it is the
@@ -296,7 +306,7 @@ multiple ways to go about the OS:
     the password shown (SAVE IT) Click ok when done.![Pi-hole Install9](./images/10000000000005950000032A5CD24C42.png)
 12. Go to the next chapter "Install PiVPN"
 
-# []{#anchor-8}Install PiVPN
+## Install PiVPN
 
 1.  Type in "curl -L https://install.pivpn.io \| bash" in the terminal.![PiVPN Install01](./images/10000000000005B10000033D016B7D01.png)
 2.  Click ok (works for Orange Pi as well as other
@@ -350,7 +360,7 @@ multiple ways to go about the OS:
     11](https://mariushosting.com/synology-use-pi-hole-as-dns-on-windows-11/).![PiVPN Install20](./images/100000000000079600000173E5396331.png)
 24.  Go to the next chapter "Install OpenMediaVault".
 
-# []{#anchor-9}Install OpenMediaVault 
+## Install OpenMediaVault 
 
 1.  First check for updates, type "apt update" if there are run "apt
     upgrade" afterwards.
@@ -382,7 +392,7 @@ multiple ways to go about the OS:
 
 13. Go to the next chapter "Install docker"
 
-# []{#anchor-10}Install Docker
+## Install Docker
 
 1.  SSH into the Pi, type in "wget -O -
     https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install
@@ -493,7 +503,7 @@ multiple ways to go about the OS:
 
 26. ![Docker Install31](./images/1000000000000C74000002FB813D3FAD.png) Go to the next chapter "copying music folder"
 
-# []{#anchor-11}File Transfer and Synchronization
+## File Transfer and Synchronization
 
 1.  There are many ways to transfer or synchronize your files from PC
     (or any other source like a phone or another NAS) to the Pi such as
@@ -604,7 +614,7 @@ multiple ways to go about the OS:
 29.  Go to the next chapter "Install Navidrome" to setup the music
     server.
 
-# []{#anchor-12}Install Navidrome
+## Install Navidrome
 
 1.  Use the terminal and SSH into the Pi. Type in "sudo mkdir -p
     /docker/navidrome"
@@ -675,7 +685,7 @@ You are now done with the mandatory stuff you need for your music
 server, if you want to read more on how to add more features you can
 continue reading on but otherwise you can stop here.
 
-# []{#anchor-13}What to install next?
+## What to install next?
 
 Some suggestions on what you may want on your server.
 
