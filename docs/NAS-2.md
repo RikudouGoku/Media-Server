@@ -1,10 +1,10 @@
 # Table of Contents
-- [2024-11-15: Media server part 2, Orange Pi 5 Plus](#2024-1115-media-server-part-2-orange-pi-5-plus)
+- [Media server part 2, Orange Pi 5 Plus](#media-server-part-2-orange-pi-5-plus)
 - [Preparation](#Preparation)
 
 
 
-## 2024-11-15: Media server part 2, Orange Pi 5 Plus
+## Media server part 2, Orange Pi 5 Plus
 
 
 So...I ended up buying the Orange Pi 5 Plus (16GB) and it has not been a
