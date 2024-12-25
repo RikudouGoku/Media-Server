@@ -355,8 +355,7 @@ multiple ways to go about the OS:
     <https://drive.google.com/file/d/1qJcShkcYlMZdgdr5HVqTmpcYxUYuP-aE/view>
     ) Chapter 2.6.2 "How to use balenaEtcher software to program" from
     step 1 to the end of step 9.
-2.  ![lsblk](./images/1000000000000473000001B32215E6FD.png){width="5.9319in"
-    height="2.2654in"}Confirm that the Pi can see the SSD by typing in
+2.  ![lsblk](./images/1000000000000473000001B32215E6FD.png)Confirm that the Pi can see the SSD by typing in
     "lsblk" in the terminal for ssh after the last step from the
     previous chapter.
 3.  Here you can see that the Pi can see the nvme drive, it is called
