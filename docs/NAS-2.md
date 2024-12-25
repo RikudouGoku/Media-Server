@@ -686,90 +686,72 @@ multiple ways to go about the OS:
 7.  Make sure it has read/write for both docker and
     Music shared folders.
 
-    ![Dockere-Group2](Pictures/1000000000000BF60000036ADDF0BD20.png)
+    ![Dockere-Group2](./images/1000000000000BF60000036ADDF0BD20.png)
 
-8.  ![](Pictures/1000000000000EA4000002FB6C2B65A1.png){width="6.05in"
-    height="1.2311in"}Go to "templates", "applications" and search for
-    "syncthing" in the portainer Web UI and click on it.
+8.  Go to "templates", "applications" and search for
+    "syncthing" in the portainer Web UI and click on it.![Syncthing01](./images/1000000000000EA4000002FB6C2B65A1.png)
 
 9.  Change the PUID (user ID) to 1001 (for dockeruser) and PGID (group
     ID) to 100 (for users group as the Music folder is owned by it) and
-    click on the show advanced options button.
+    click on the show advanced options button.![Syncthing2](./images/1000000000000827000005B9A227806F.png)
 
-10. ![](Pictures/1000000000000827000005B9A227806F.png){width="6.05in"
-    height="4.2465in"}Make sure the host for the /config path is
+10. Make sure the host for the /config path is
     "/docker/syncthing/config" and the container /Music has /Music as
     the host path. Both with bind and writeable settings.
 
-    ![](Pictures/10000000000007A6000001ED72EB5709.png){width="6.05in"
-    height="1.5228in"}
+    ![Syncthing03](Pictures/10000000000007A6000001ED72EB5709.png)
 
 11. Then click on deploy container.
 
 12. Click "containers" and then the link under "8384:8384" which should
-    open the Syncthing Web UI.
+    open the Syncthing Web UI.![Portainer02](./images/1000000000000E980000036F01D65DBF.png)
 
-13. ![](Pictures/1000000000000E980000036F01D65DBF.png){width="6.05in"
-    height="1.4228in"}Yes or no, up to you.
+13. Yes or no, up to you.![Syncthing04](./images/10000000000009DB000006C12B5FEE4F.png)
 
-14. ![](Pictures/10000000000009DB000006C12B5FEE4F.png){width="6.05in"
-    height="4.1457in"}Click on the settings button, then "GUI" and
+14. Click on the settings button, then "GUI" and
     create your user and password and then save, you will be logged out
     and need to sign in with the just created user.
 
-15. ![](Pictures/1000000000000927000003DD25400BAB.png){width="6.05in"
-    height="2.5535in"}Now you need to have Syncthing installed on your
+15. ![Syncthing05](./images/1000000000000927000003DD25400BAB.png)Now you need to have Syncthing installed on your
     PC (or the device you want to file transfer/synchronize) check
     [here](https://syncthing.net/downloads/).
 
-16. Click on the "add remote device" on Syncthing running on the Pi.
+16. Click on the "add remote device" on Syncthing running on the Pi.![Syncthing06](./images/10000000000004AB0000012622DAFADB.png)
 
-17. ![](Pictures/10000000000004AB0000012622DAFADB.png){width="6.05in"
-    height="1.4882in"}Go to the Web UI for the PC Syncthing and click on
-    the "identification" under "This device" and copy the ID there.
+17. Go to the Web UI for the PC Syncthing and click on
+    the "identification" under "This device" and copy the ID there.![Syncthing07](./images/1000000000000835000004996BED7942.png)
 
-18. ![](Pictures/1000000000000835000004996BED7942.png){width="6.05in"
-    height="3.389in"}Paste it in the Pi Syncthing Web UI under "device
+18. Paste it in the Pi Syncthing Web UI under "device
     ID" and name it whatever you want, this is my Synology DS423+ so
-    that is the name I use, click save.
+    that is the name I use, click save.![Syncthing08](./images/10000000000006EC000003EA4DFAF37E.png)
 
-19. ![](Pictures/10000000000006EC000003EA4DFAF37E.png){width="6.05in"
-    height="3.4209in"}Over in the PC Syncthing Web UI, you should get a
-    notification click add device to pair them.
+19. Over in the PC Syncthing Web UI, you should get a
+    notification click add device to pair them.![Syncthing09](./images/100000000000096B000002383FDE4E4E.png)
 
-20. ![](Pictures/100000000000096B000002383FDE4E4E.png){width="6.05in"
-    height="1.4252in"}Give it a name and click save.
+20. Give it a name and click save.![Syncthing10](./images/10000000000006F50000030F1E31AB2B.png)
 
-21. ![](Pictures/10000000000006F50000030F1E31AB2B.png){width="6.05in"
-    height="2.6591in"}The paired device should be under "Remote Devices"
-    and the same for the Pi over on the other Syncthing.
+21. The paired device should be under "Remote Devices"
+    and the same for the Pi over on the other Syncthing.![Syncthing11](./images/1000000000000928000003C18A1326CE.png)
 
-22. ![](Pictures/1000000000000928000003C18A1326CE.png){width="6.05in"
-    height="2.4799in"}Over on the PC Syncthing, you need to add the
+22. Over on the PC Syncthing, you need to add the
     music folder. I am syncing the Music folder I have on my Synology
-    NAS so the path for me looks like this.
+    NAS so the path for me looks like this.![Syncthing12](./images/100000000000070000000450A8349CAA.png)
 
-23. ![](Pictures/100000000000070000000450A8349CAA.png){width="6.05in"
-    height="3.7272in"}I will be doing a two way sync but I recommend to
+23. I will be doing a two way sync but I recommend to
     use send only first to check so everything is working. After the
-    folder has been fully scanned, you need to share it to the Pi.
+    folder has been fully scanned, you need to share it to the Pi.![Syncthing13](./images/10000000000006E2000003CC5EF18E8B.png)
 
-24. ![](Pictures/10000000000006E2000003CC5EF18E8B.png){width="6.05in"
-    height="3.3366in"}Go to the sharing tab and click on the Pi and
-    click save.
+24. Go to the sharing tab and click on the Pi and
+    click save.![Syncthing14](./images/1000000000000703000003CAAC970EDB.png)
 
-25. ![](Pictures/1000000000000703000003CAAC970EDB.png){width="6.05in"
-    height="3.2693in"}Over in the Syncthing for the Pi, you should get a
-    popup asking if you want to add the Music folder, click add.
+25. Over in the Syncthing for the Pi, you should get a
+    popup asking if you want to add the Music folder, click add.![Syncthing15](./images/1000000000000908000001EF8378319B.png)
 
-26. ![](Pictures/1000000000000908000001EF8378319B.png){width="6.05in"
-    height="1.2945in"}Change folder path to "/Music".
+26. Change folder path to "/Music".![Syncthing16](./images/10000000000006DA000004AEE87BDC22.png)
 
-27.  ![](Pictures/10000000000006DA000004AEE87BDC22.png){width="6.05in"
-    height="4.1319in"}Go to the advanced tab and change folder type to
-    "receive only". Click save.
-28.  ![](Pictures/10000000000006D400000358318FF8B2.png){width="6.05in"
-    height="2.9626in"}Wait until it has finished transferring the files,
+27. Go to the advanced tab and change folder type to
+    "receive only". Click save. ![Syncthing17](./images/10000000000006D400000358318FF8B2.png)
+28. Wait until it has finished transferring the files,
     as this is a "send" then "receive" only folder, nothing will be
     deleted if anything goes wrong so check that the files are all there
     once it is finished. If everything works you can if you want, change
