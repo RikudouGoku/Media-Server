@@ -59,177 +59,21 @@ SoC in the 5 Plus compared to the 3B, 8 GB is my recommendation at least
 but I went with 16 GB since you cannot really upgrade the RAM
 afterwards. Here is the list of what I bought:
 
-+----------------+----------------+----------------+----------------+
-| Product        | Link           | Description    | Need?          |
-+----------------+----------------+----------------+----------------+
-| Acrylic case   | <https://www.  | A cheap case   | Mandatory, you |
-| with heatsink  | aliexpress.com | to lift the Pi | need some form |
-| and fan kit    | /item/10050056 | off the ground | of cooling and |
-|                | 37567338.html> | a bit, useful  | with how       |
-|                |                | heatsink. Fan  | powerful the   |
-|                |                | I do not use   | SoC is, active |
-|                |                | but should be  | cooling is     |
-|                |                | decent.        | preferable     |
-+----------------+----------------+----------------+----------------+
-| NVME SSD       | <https://www.  | No active      | Not mandatory, |
-| Thermal pad    | aliexpress.com | cooling on the | but likely     |
-| (70x20x3.0mm)  | /item/10050059 | NVME so a      | better for SSD |
-|                | 14728082.html> | passive        | health for     |
-|                |                | thermal pad    | long term.     |
-|                |                | will help.     | Either this or |
-|                |                | Hovers around  | the COOLLEO    |
-|                |                | 50C in idle    | heat sink      |
-+----------------+----------------+----------------+----------------+
-| COOLLEO M.2    | <https://www.  | No active      | Not mandatory, |
-| 2280 SSD heat  | aliexpress.com | cooling on the | but likely     |
-| sink           | /item/10050072 | NVME so a      | better for SSD |
-|                | 21906478.html> | passive heat   | health for     |
-|                |                | sink will      | long term.     |
-|                |                | help. Hovers   | Either this or |
-|                |                | around 30C in  | the Thermal    |
-|                |                | idle (20C      | pad.           |
-|                |                | lower than     |                |
-|                |                | thermal pad)   |                |
-+----------------+----------------+----------------+----------------+
-| NETAC SD Card  | <https://w     | Need an sd     | Not mandatory, |
-| 64GB           | ww.aliexpress. | card to first  | you just need  |
-|                | com/item/40005 | install the OS | an SD card     |
-|                | 61924634.html> | (can then move | (and           |
-|                |                | to entirely    | a              |
-|                |                | using NVME     | dapter/reader) |
-|                |                | only).         | for the first  |
-|                |                |                | install but if |
-|                |                |                | you do not     |
-|                |                |                | have one       |
-|                |                |                | already, this  |
-|                |                |                | should be      |
-|                |                |                | good.          |
-+----------------+----------------+----------------+----------------+
-| 6-In-1 USB     | <https://www.  | USB adapter    | Mandatory, if  |
-| adapter        | aliexpress.com | for the SD     | you do not     |
-|                | /item/10050058 | Card so you    | have one.      |
-|                | 72584302.html> | can use it     |                |
-|                |                | with your PC.  |                |
-+----------------+----------------+----------------+----------------+
-| NETAC NVME SSD | <https://www.  | Cheap and from | Not mandatory, |
-| 1TB            | aliexpress.com | my research    | but good to    |
-|                | /item/10050037 | apparently a   | have an NVME   |
-|                | 94707357.html> | good brand for | for Boot/root  |
-|                |                | SSDs on        | partition for  |
-|                |                | AliExpress     | maximum speed. |
-|                |                | (rare). Got    |                |
-|                |                | 1TB since only |                |
-|                |                | one NVME slot  |                |
-|                |                | and I needed a |                |
-|                |                | bit more than  |                |
-|                |                | 500GB.         |                |
-+----------------+----------------+----------------+----------------+
-| UGREEN CAT8    | <https://www.  | Need an        | Mandatory, you |
-| Ethernet cable | aliexpress.com | Ethernet cable | need a wired   |
-| (Flat PVC      | /item/10050068 | to connect     | Ethernet cable |
-| version)       | 95115843.html> | with the       | to use with    |
-|                |                | router wired.  | router.        |
-|                |                | Picked a       |                |
-|                |                | random one     |                |
-|                |                | from a         |                |
-|                |                | reputable      |                |
-|                |                | brand on       |                |
-|                |                | AliExpress.    |                |
-+----------------+----------------+----------------+----------------+
-| Orange Pi 5    | <https://www.  | Bought with    | Obviously the  |
-| Plus (with     | aliexpress.com | the power      | key part in    |
-| power supply   | /item/10050056 | supply (5V 4A) | the setup.     |
-| option)        | 21748337.html> | in case I need | Power supply   |
-|                |                | it.            | is not needed  |
-|                |                |                | though if you  |
-|                |                |                | go with the    |
-|                |                |                | UPS.           |
-+----------------+----------------+----------------+----------------+
-| Waveshare UPS  | <https://www.  | UPS so if the  | Not mandatory, |
-| Module 3S (EN) | aliexpress.com | power goes     | but HIGHLY     |
-|                | /item/10050050 | down it should | recommended.   |
-|                | 81170621.html> | either         |                |
-|                |                | gracefully     |                |
-|                |                | shut down      |                |
-|                |                | without        |                |
-|                |                | da             |                |
-|                |                | mage/data-loss |                |
-|                |                | or keep        |                |
-|                |                | running on     |                |
-|                |                | battery until  |                |
-|                |                | power comes    |                |
-|                |                | back.          |                |
-+----------------+----------------+----------------+----------------+
-| INR18650 MH1   | Swedish store  | Need 3 x 18650 | Mandatory (3x  |
-|                | (find your own | batteries for  | 18650          |
-|                | store          | the 3S UPS I   | batteries) if  |
-|                | locally):      | paid around 18 | you go with    |
-|                | <http          | usd for        | the UPS.       |
-|                | s://www.electr | them           |                |
-|                | okit.com/batte | .[]{#anchor-1} |                |
-|                | ri-li-ion-1865 | You need to    |                |
-|                | 0-3.7v-3200mah | find your own  |                |
-|                | -inr18650-mh1> | locally (avoid |                |
-|                |                | AliExpress as  |                |
-|                |                | there are many |                |
-|                |                | fakes and      |                |
-|                |                | shipping is    |                |
-|                |                | extremely slow |                |
-|                |                | with batteries |                |
-|                |                | there and      |                |
-|                |                | price is the   |                |
-|                |                | same as        |                |
-|                |                | local), key    |                |
-|                |                | words being    |                |
-|                |                | 3.7V, 18650,   |                |
-|                |                | flat top and   |                |
-|                |                | unprotected.\  |                |
-|                |                | Another model  |                |
-|                |                | that looks     |                |
-|                |                | good/popular   |                |
-|                |                | is the         |                |
-|                |                | INR18650-35E). |                |
-|                |                | Here are some  |                |
-|                |                | measurements:  |                |
-|                |                | <https         |                |
-|                |                | ://lygte-info. |                |
-|                |                | dk/review/batt |                |
-|                |                | eries2012/LG%2 |                |
-|                |                | 018650%20MH1%2 |                |
-|                |                | 03200mAh%20(Cy |                |
-|                |                | an)%20UK.html> |                |
-|                |                | <https://lyg   |                |
-|                |                | te-info.dk/rev |                |
-|                |                | iew/batteries2 |                |
-|                |                | 012/Samsung%20 |                |
-|                |                | INR18650-35E%2 |                |
-|                |                | 03500mAh%20(Pi |                |
-|                |                | nk)%20UK.html> |                |
-+----------------+----------------+----------------+----------------+
-| 12.6V 2A       | <https:/       | Charger for    | Not needed if  |
-| Charger        | /www.aliexpres | the UPS        | Waveshare      |
-|                | s.com/item/329 |                | includes the   |
-|                | 76610933.html> |                | charger with   |
-|                |                |                | the UPS, the   |
-|                |                |                | link I bought  |
-|                |                |                | from did.      |
-+----------------+----------------+----------------+----------------+
-| Noctua         | <http          | Better fan     | Not mandatory, |
-| NF-A4x10 5V    | s://noctua.at/ | that is        | upgraded fan   |
-|                | en/products/fa | essentially    | over the one   |
-|                | n/nf-a4x10-5v> | inaudible and  | that comes     |
-|                |                | excellent      | with the       |
-|                |                | cooling        | acrylic case   |
-|                |                | cooling. (make | kit. Use the   |
-|                |                | sure it is the | stock one or   |
-|                |                | 5V and without | this Noctua    |
-|                |                | PWM version)   | fan.           |
-+----------------+----------------+----------------+----------------+
-| O-ring         | <https:/       |                | Needed if you  |
-| (4x2x1mm)      | /www.aliexpres |                | want to fasten |
-|                | s.com/item/329 |                | the Noctua fan |
-|                | 52893714.html> |                | in place.      |
-+----------------+----------------+----------------+----------------+
+| Product              | Link                                                 | Description                                                 | Need?                                  |
+|----------------------|------------------------------------------------------|-------------------------------------------------------------|----------------------------------------|
+| Acrylic case with heatsink and fan kit | [Link](https://www.aliexpress.com/item/1005005637567338.html) | A cheap case to lift the Pi off the ground a bit, useful heatsink. Fan I do not use but should be decent. | Mandatory, you need some form of cooling and with how powerful the SoC is, active cooling is preferable |
+| NVME SSD Thermal pad (70x20x3.0mm) | [Link](https://www.aliexpress.com/item/1005005914728082.html) | No active cooling on the NVME so a passive thermal pad will help. Hovers around 50C in idle | Not mandatory, but likely better for SSD health for long term. Either this or the COOLLEO heat sink |
+| COOLLEO M.2 2280 SSD heat sink | [Link](https://www.aliexpress.com/item/1005007221906478.html) | No active cooling on the NVME so a passive heat sink will help. Hovers around 30C in idle (20C lower than thermal pad) | Not mandatory, but likely better for SSD health for long term. Either this or the Thermal pad |
+| NETAC SD Card 64GB | [Link](https://www.aliexpress.com/item/4000561924634.html) | Need an SD card to first install the OS (can then move to entirely using NVME only) | Not mandatory, you just need an SD card (and a dapter/reader) for the first install but if you do not have one already, this should be good. |
+| 6-In-1 USB adapter | [Link](https://www.aliexpress.com/item/1005005872584302.html) | USB adapter for the SD Card so you can use it with your PC. | Mandatory, if you do not have one. |
+| NETAC NVME SSD 1TB | [Link](https://www.aliexpress.com/item/1005003794707357.html) | Cheap and from my research apparently a good brand for SSDs on AliExpress (rare). Got 1TB since only one NVME slot and I needed a bit more than 500GB. | Not mandatory, but good to have an NVME for Boot/root partition for maximum speed. |
+| UGREEN CAT8 Ethernet cable (Flat PVC version) | [Link](https://www.aliexpress.com/item/1005006895115843.html) | Need an Ethernet cable to connect with the router wired. Picked a random one from a reputable brand on AliExpress. | Mandatory, you need a wired Ethernet cable to use with router. |
+| Orange Pi 5 Plus (with power supply option) | [Link](https://www.aliexpress.com/item/1005005621748337.html) | Bought with the power supply (5V 4A) in case I need it. | Obviously the key part in the setup. Power supply is not needed though if you go with the UPS. |
+| Waveshare UPS Module 3S (EN) | [Link](https://www.aliexpress.com/item/1005005081170621.html) | UPS so if the power goes down it should either gracefully shut down without damage/data-loss or keep running on battery until power comes back. | Not mandatory, but HIGHLY recommended. |
+| INR18650 MH1 | Swedish store (find your own store locally): [Link](https://www.electrokit.com/batteries) | Need 3 x 18650 batteries for the 3S UPS I paid around 18 usd for them. | Mandatory (3x 18650 batteries) if you go with the UPS. |
+| 12.6V 2A Charger | [Link](https://www.aliexpress.com/item/32976610933.html) | Charger for the UPS | Not needed if Waveshare includes the charger with the UPS, the link I bought from did. |
+| Noctua NF-A4x10 5V | [Link](https://noctua.at/en/products/fan/nf-a4x10-5v) | Better fan that is essentially inaudible and excellent cooling. (make sure it is the 5V and without PWM version) | Not mandatory, upgraded fan over the one that comes with the acrylic case kit. Use the stock one or this Noctua fan. |
+| O-ring (4x2x1mm) | [Link](https://www.aliexpress.com/item/32952893714.html) | Needed if you want to fasten the Noctua fan in place. | Needed if you want to fasten the Noctua fan in place. |
 
 Alright, so now you have all the hardware you need. There are now
 multiple ways to go about the OS:
