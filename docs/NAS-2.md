@@ -809,12 +809,8 @@ multiple ways to go about the OS:
     and [Symfonium](https://symfonium.app/) for Android, for iOS I do
     not use it so check the list yourself.
 
-
-| Symfonium1 | Symfonium2 | Symfonium3 | Symfonium4 |
-|:----------:|:----------:|:----------:|:----------:|
 | ![Symfonium1](./images/10000000000003150000069BA9878869.png) | ![Symfonium2](./images/10000000000002F30000066D75106A97.png) | ![Symfonium3](./images/10000000000002EC0000065BAB2E256A.png) | ![Symfonium4](./images/10000000000002EA0000066376DEB8DB.png) |
-
-
+|:-----------------------------------------------------------------:|:-----------------------------------------------------------------:|:-----------------------------------------------------------------:|:-----------------------------------------------------------------:|
 
 
 
