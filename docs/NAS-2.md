@@ -847,8 +847,7 @@ Some suggestions on what you may want on your server.
     Tracker](https://github.com/henrywhitaker3/Speedtest-Tracker): to
     measure your network speed
 
-1.  ![](Pictures/1000000000000EAB000003FADBFA56A5.png){width="6.05in"
-    height="1.6398in"}Go to Portainer and open "Templates", then
+1.  ![Speedtest1](./images/1000000000000EAB000003FADBFA56A5.png)Go to Portainer and open "Templates", then
     "Application" and search for speedtest and click on "Speedtest
     Tracker".
 
