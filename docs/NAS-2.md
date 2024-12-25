@@ -437,22 +437,22 @@ multiple ways to go about the OS:
     enP4p65s0.![ip addr](./images/100000000000064E000002D65AC1B528.png)
 2.  Type in "curl -sSL https://install.pi-hole.net \| bash" in the
     terminal to run the automatic installer. You should see this
-    afterwards.
-3.  ![Pi-hole Install1](./images/100000000000062200000383094DE9D3.png)Click ok, twice, then continue when it says you
+    afterwards.![Pi-hole Install1](./images/100000000000062200000383094DE9D3.png)
+3.  Click ok, twice, then continue when it says you
     need a static IP which we already did in the previous chapter.
 4.  Select the interface that is in use which we found out in step 1 to
     be
     enP4p65s0![Pi-hole Install2](./images/10000000000005890000030F82B48FE5.png) here.
-5.  Select the upstream DNS provider, I picked Cloudflare.
-6.  ![Pi-hole Install3](./images/10000000000005B000000329970FA549.png)Select yes to use the default block list.
-7.  ![Pi-hole Install4](./images/100000000000057F000003164CE40C7D.png)Select yes to have Web UI to manage it easier.
-8.  ![Pi-hole Install5](./images/10000000000005A500000313760892D1.png)Yes.
-9.  ![Pi-hole Install6](./images/1000000000000596000003273653CE98.png)Yes
-10. ![Pi-hole Install7](./images/10000000000005B100000328EEA3E303.png) Select "show everything" and then WAIT.
-11. ![Pi-hole Install8](./images/10000000000005CB000002F56D61A6AC.png)Open up the web page by opening a new tab in your
+5.  Select the upstream DNS provider, I picked Cloudflare.![Pi-hole Install3](./images/10000000000005B000000329970FA549.png)
+6.  Select yes to use the default block list.![Pi-hole Install4](./images/100000000000057F000003164CE40C7D.png)
+7.  Select yes to have Web UI to manage it easier.![Pi-hole Install5](./images/10000000000005A500000313760892D1.png)
+8.  Yes.![Pi-hole Install6](./images/1000000000000596000003273653CE98.png)
+9.  Yes![Pi-hole Install7](./images/10000000000005B100000328EEA3E303.png)
+10.  Select "show everything" and then WAIT.![Pi-hole Install8](./images/10000000000005CB000002F56D61A6AC.png)
+11. Open up the web page by opening a new tab in your
     browser and type "192.168.0.50/admin" (example IP) then log in with
-    the password shown (SAVE IT) Click ok when done.
-12. ![Pi-hole Install9](./images/10000000000005950000032A5CD24C42.png)Go to the next chapter "Install PiVPN"
+    the password shown (SAVE IT) Click ok when done.![Pi-hole Install9](./images/10000000000005950000032A5CD24C42.png)
+12. Go to the next chapter "Install PiVPN"
 
 # []{#anchor-8}Install PiVPN
 
