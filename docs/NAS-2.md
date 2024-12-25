@@ -93,7 +93,7 @@ multiple ways to go about the OS:
     armbian-config tool to install OMV in a single step with all
     performance and reliability tweaks included.
 
-##Preparation
+## Preparation
 
 1.  Connect the three 18650 batteries to the UPS and then assemble the
     UPS (you need to connect the Type-C, Switch button and DC5521 cables
