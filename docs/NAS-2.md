@@ -343,7 +343,7 @@ multiple ways to go about the OS:
     language and timezone, you can pick on your own or select the
     default one for you. After all that you should see this:
 
-    ![](Pictures/100000000000063D00000398FC82C368.png){width="6.05in"
+    ![Armbian Default Page](./images/100000000000063D00000398FC82C368.png){width="6.05in"
     height="3.4846in"}Continue with the next chapter right after this
     (Boot from NVME SSD) or skip that if you do not have an NVME SSD
     that you want to boot from.
