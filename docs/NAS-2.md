@@ -710,9 +710,9 @@ multiple ways to go about the OS:
 
 14. Click on the settings button, then "GUI" and
     create your user and password and then save, you will be logged out
-    and need to sign in with the just created user.
+    and need to sign in with the just created user.![Syncthing05](./images/1000000000000927000003DD25400BAB.png)
 
-15. ![Syncthing05](./images/1000000000000927000003DD25400BAB.png)Now you need to have Syncthing installed on your
+15. Now you need to have Syncthing installed on your
     PC (or the device you want to file transfer/synchronize) check
     [here](https://syncthing.net/downloads/).
 
