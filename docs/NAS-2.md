@@ -458,28 +458,28 @@ multiple ways to go about the OS:
 1.  Type in "curl -L https://install.pivpn.io \| bash" in the terminal.![PiVPN Install01](./images/10000000000005B10000033D016B7D01.png)
 2.  Click ok (works for Orange Pi as well as other
     SBCs, not just Raspberry Pi´s).
-3.  ok
-4.  ![PiVPN Install02](./images/10000000000005CD00000328DC1C271D.png)Yes
-5.  ![PiVPN Install03](./images/10000000000005C10000032FED830224.png)Ok
-6.  ![PiVPN Install04](./images/10000000000005C80000032BCA4AA967.png)ok
-7.  ![PiVPN INstall05](./images/10000000000005C80000032DE08F29FB.png)Select your user.
-8.  ![PiVPN Install06](./images/10000000000005C1000003449BFB9FF4.png)Pick between WireGuard or OpenVPN, WireGuard is
-    what I use and is what is mostly recommended as far as I know.
-9.  ![PiVPN Install07](./images/100000000000059E00000316947D9F89.png)Use the default port and confirm it.
-10. ![PiVPN Install08](./images/10000000000005AB00000368BE2FA6AF.png)Yes.
-11. ![PiVPN Install09](./images/10000000000005D60000031D6066A2B8.png)Use public IP
-12. ![PiVPN Install10](./images/10000000000005D300000345369F69C6.png)Ok
-13. ![PiVPN Install11](./images/10000000000005B70000033A40416BAE.png)Yes
-14. ![PiVPN Install12](./images/10000000000005C30000032CAAC01433.png)ok
-15. ![PiVPN Install13](./images/10000000000005BC0000033DDE28D996.png)yes and it will reboot.
-16. ![PiVPN Install14](./images/10000000000005D80000033F83678DAA.png)After the reboot you might need to close and open
+3.  ok![PiVPN Install02](./images/10000000000005CD00000328DC1C271D.png)
+4.  Yes![PiVPN Install03](./images/10000000000005C10000032FED830224.png)
+5.  Ok![PiVPN Install04](./images/10000000000005C80000032BCA4AA967.png)
+6.  ok![PiVPN INstall05](./images/10000000000005C80000032DE08F29FB.png)
+7.  Select your user.![PiVPN Install06](./images/10000000000005C1000003449BFB9FF4.png)
+8.  Pick between WireGuard or OpenVPN, WireGuard is
+    what I use and is what is mostly recommended as far as I know.![PiVPN Install07](./images/100000000000059E00000316947D9F89.png)
+9.  Use the default port and confirm it.![PiVPN Install08](./images/10000000000005AB00000368BE2FA6AF.png)
+10. Yes.![PiVPN Install09](./images/10000000000005D60000031D6066A2B8.png)
+11. Use public IP![PiVPN Install10](./images/10000000000005D300000345369F69C6.png)
+12. Ok![PiVPN Install11](./images/10000000000005B70000033A40416BAE.png)
+13. Yes![PiVPN Install12](./images/10000000000005C30000032CAAC01433.png)
+14. ok![PiVPN Install13](./images/10000000000005BC0000033DDE28D996.png)
+15. yes and it will reboot.![PiVPN Install14](./images/10000000000005D80000033F83678DAA.png)
+16. After the reboot you might need to close and open
     the terminal again and ssh into it, we want to create client
     profiles, type in "pivpn add" and enter a name for
-    ![PiVPN Install15](./images/1000000000000347000000528331E8F0.png)the client, since I want the client to be my Phone
-    I will just name it the Xperia5V
-17. ![PiVPN Install16](./images/10000000000005E4000001B40F617C00.png)Go to your router settings and add a port forward
-    rule to forward all from 51820 via UDP.
-18. ![PiVPN Install17](./images/10000000000004E60000030F17D7AD44.png)Download the WireGuard app on whatever device you
+    the client, since I want the client to be my Phone
+    I will just name it the Xperia5V. ![PiVPN Install15](./images/1000000000000347000000528331E8F0.png)![PiVPN Install16](./images/10000000000005E4000001B40F617C00.png)
+17. Go to your router settings and add a port forward
+    rule to forward all from 51820 via UDP.![PiVPN Install17](./images/10000000000004E60000030F17D7AD44.png)
+18. Download the WireGuard app on whatever device you
     want to connect to the Pi remotely, in my case it is my
     [Android](https://play.google.com/store/apps/details?id=com.wireguard.android)
     phone.
@@ -500,8 +500,8 @@ multiple ways to go about the OS:
     the IP address I have when on my Wi-Fi and the location shown on
     that site is much closer to my real location compared to mobile data
     which isn't as accurate. You can also check the Pi-hole Web UI page
-    and it should have some queries and clients now after that test.
-23. ![PiVPN Install19](./images/10000000000009CB0000017C68255016.png)To use Pi-hole as your DNS on PC, you need to
+    and it should have some queries and clients now after that test.![PiVPN Install19](./images/10000000000009CB0000017C68255016.png)
+23. To use Pi-hole as your DNS on PC, you need to
     change your DNS settings to the IP address of the Pi, [Windows
     10](https://www.windowscentral.com/how-change-your-pcs-dns-settings-windows-10)/[Windows
     11](https://mariushosting.com/synology-use-pi-hole-as-dns-on-windows-11/).![PiVPN Install20](./images/100000000000079600000173E5396331.png)
