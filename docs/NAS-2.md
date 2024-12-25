@@ -348,7 +348,6 @@ multiple ways to go about the OS:
     (Boot from NVME SSD) or skip that if you do not have an NVME SSD
     that you want to boot from.
 
-(SSH official guide chapter 3.8)
 
 # []{#anchor-4}Boot from NVME SSD
 
@@ -356,7 +355,7 @@ multiple ways to go about the OS:
     <https://drive.google.com/file/d/1qJcShkcYlMZdgdr5HVqTmpcYxUYuP-aE/view>
     ) Chapter 2.6.2 "How to use balenaEtcher software to program" from
     step 1 to the end of step 9.
-2.  ![](Pictures/1000000000000473000001B32215E6FD.png){width="5.9319in"
+2.  ![lsblk](./images/1000000000000473000001B32215E6FD.png){width="5.9319in"
     height="2.2654in"}Confirm that the Pi can see the SSD by typing in
     "lsblk" in the terminal for ssh after the last step from the
     previous chapter.
