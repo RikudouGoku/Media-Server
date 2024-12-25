@@ -305,8 +305,8 @@ multiple ways to go about the OS:
     at max power (it is barely audible and drains next to no power).
     Connect to these pins (5V and GND) if using the 2pin adapter:
 
-    ![](Pictures/10000000000007D8000002E8E3698715.png){width="6.05in"
-    height="2.2409in"}(if using 3 pin I believe (not 100% sure) you want
+<img src="./images/10000000000007D8000002E8E3698715.png" width="6.05in" height="2.2409in">
+(if using 3 pin I believe (not 100% sure) you want
     to connect the third yellow wire to the GPIO1_A1 pin.)
 
 # []{#anchor-3}Installation/First Boot From SD Card
