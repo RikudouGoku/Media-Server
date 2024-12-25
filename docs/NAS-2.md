@@ -671,27 +671,22 @@ multiple ways to go about the OS:
     "<https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/template/portainer-v2-amd64.json>"
     and save.
 
-    ![](Pictures/1000000000000B4600000599B891017F.png){width="6.05in"
-    height="3.0035in"}
+    ![Portainer](./images/1000000000000B4600000599B891017F.png)
 
 4.  Check the ID for the docker-group you created before by typing "id
     dockeruser" in the terminal after SSH into the Pi. In my case
-    docker-group is 1002 and dockeruser is 1001.
+    docker-group is 1002 and dockeruser is 1001.![dockeruser](./images/100000000000063A00000085B66F2FE0.png)
 
-5.  ![](Pictures/100000000000063A00000085B66F2FE0.png){width="6.05in"
-    height="0.5043in"}Check the absolute path for docker and Music
-    folders. They are /docker and /Music.
+5.  Check the absolute path for docker and Music
+    folders. They are /docker and /Music.![Sharedfolder](./images/10000000000006CF000001C816248CC6.png)
 
-6.  ![](Pictures/10000000000006CF000001C816248CC6.png){width="6.05in"
-    height="1.5827in"}Go to the "users", "groups" and click on the
-    permission icon for the group called "docker-group".
+6.  Go to the "users", "groups" and click on the
+    permission icon for the group called "docker-group".![Docker-Group1](./images/1000000000000768000003B14A1E593F.png)
 
-7.  ![](Pictures/1000000000000768000003B14A1E593F.png){width="6.05in"
-    height="3.0146in"}Make sure it has read/write for both docker and
+7.  Make sure it has read/write for both docker and
     Music shared folders.
 
-    ![](Pictures/1000000000000BF60000036ADDF0BD20.png){width="6.05in"
-    height="1.7264in"}
+    ![Dockere-Group2](Pictures/1000000000000BF60000036ADDF0BD20.png)
 
 8.  ![](Pictures/1000000000000EA4000002FB6C2B65A1.png){width="6.05in"
     height="1.2311in"}Go to "templates", "applications" and search for
@@ -770,10 +765,10 @@ multiple ways to go about the OS:
 26. ![](Pictures/1000000000000908000001EF8378319B.png){width="6.05in"
     height="1.2945in"}Change folder path to "/Music".
 
-1.  ![](Pictures/10000000000006DA000004AEE87BDC22.png){width="6.05in"
+27.  ![](Pictures/10000000000006DA000004AEE87BDC22.png){width="6.05in"
     height="4.1319in"}Go to the advanced tab and change folder type to
     "receive only". Click save.
-2.  ![](Pictures/10000000000006D400000358318FF8B2.png){width="6.05in"
+28.  ![](Pictures/10000000000006D400000358318FF8B2.png){width="6.05in"
     height="2.9626in"}Wait until it has finished transferring the files,
     as this is a "send" then "receive" only folder, nothing will be
     deleted if anything goes wrong so check that the files are all there
@@ -781,7 +776,7 @@ multiple ways to go about the OS:
     the folder settings on both Syncthing Web UI to be "send & receive"
     so they are synchronized or leave it as it is if you want them to be
     separate.
-3.  Go to the next chapter "Install Navidrome" to setup the music
+29.  Go to the next chapter "Install Navidrome" to setup the music
     server.
 
 # []{#anchor-12}Install Navidrome
@@ -844,7 +839,7 @@ multiple ways to go about the OS:
     height="3.2161in"}![](Pictures/10000000000002EA0000066376DEB8DB.png){width="1.4862in"
     height="3.2563in"}
 
-12\. **(Will show you how to connect with Symfonium but procedure is the
+13. **(Will show you how to connect with Symfonium but procedure is the
 same for the other clients basically) **Go to the settings in Symfonium,
 click on the settings button to the bottom right, "manage media
 providers", then "add media provider" and select "(open) Subsonic", then
