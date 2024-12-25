@@ -771,39 +771,33 @@ multiple ways to go about the OS:
 3.  Then "sudo chmod 775 /docker/navidrome"
 
 4.  Go "services", "compose" and then "files" and click the plus icon
-    and then the "add from example" button.
+    and then the "add from example" button.![compose](./images/1000000000000735000003D4AE069073.png)
 
-5.  ![](Pictures/1000000000000735000003D4AE069073.png){width="6.05in"
-    height="3.2134in"}Search for navidrome in the example field and name
-    it navidrome and then save.
+5.  Search for navidrome in the example field and name
+    it navidrome and then save.![compose2](./images/1000000000000C60000002BDC0BFDF45.png)
 
-6.  ![](Pictures/1000000000000C60000002BDC0BFDF45.png){width="6.05in"
-    height="1.3382in"}Remove these lines.
+6.  Remove these lines.
 
-    ![](Pictures/100000000000046B0000027759CD107E.png){width="5.8902in"
-    height="3.2862in"}
+    ![compose3](./images/100000000000046B0000027759CD107E.png)
 
 7.  Click on navidrome and then edit it, change user to "1001:100" (or
     whatever the ID is for your "dockeruser" user and "user" group), add
     this environment variable " ND_MUSICFOLDER: /Music", remove
     "ND_BASEURL: "navidrome.\$URL" and change the volumes to match the
     picture shown below. Save and apply. For more customization check
-    [here](https://www.navidrome.org/docs/usage/configuration-options/)
+    [here](https://www.navidrome.org/docs/usage/configuration-options/)![compose4](./images/1000000000000C20000004D6F623650E.png)
 
-8.  ![](Pictures/1000000000000C20000004D6F623650E.png){width="6.05in"
-    height="2.4126in"}click on it and click on the arrow up symbol to
+8.  click on it and click on the arrow up symbol to
     start it.
 
 9.  Once started open a new page in your browser and go to
     "<http://IPADDRESS:4040/>" (replace with your Pi address) and create
-    your admin user.
+    your admin user.![Navidrome01](./images/100000000000087D00000637CE63DAFB.png)
 
-10. ![](Pictures/100000000000087D00000637CE63DAFB.png){width="6.05in"
-    height="4.4291in"}Once in you should see your music as it begins to
-    scan the music folder.
+10. Once in you should see your music as it begins to
+    scan the music folder.![Navidrome02](./images/1000000000000EAC000006E47568DA64.png)
 
-11. ![](Pictures/1000000000000EAC000006E47568DA64.png){width="6.05in"
-    height="2.8409in"}Took around 12 minutes to fully scan my music
+11. Took around 12 minutes to fully scan my music
     which is around 520GB.
 
 12. Now you need a client that is able to connect to your navidrome
@@ -815,11 +809,13 @@ multiple ways to go about the OS:
     and [Symfonium](https://symfonium.app/) for Android, for iOS I do
     not use it so check the list yourself.
 
-    ![](Pictures/10000000000003150000069BA9878869.png){width="1.4626in"
-    height="3.1335in"}![](Pictures/10000000000002F30000066D75106A97.png){width="1.4846in"
-    height="3.2346in"}![](Pictures/10000000000002EC0000065BAB2E256A.png){width="1.4791in"
-    height="3.2161in"}![](Pictures/10000000000002EA0000066376DEB8DB.png){width="1.4862in"
-    height="3.2563in"}
+<div style="display: flex;">
+  <img src="./images/10000000000003150000069BA9878869.png" width="1.4626in" height="3.1335in" alt="Symfonium1">
+  <img src="./images/10000000000002F30000066D75106A97.png" width="1.4846in" height="3.2346in" alt="Symfonium2">
+  <img src="./images/10000000000002EC0000065BAB2E256A.png" width="1.4791in" height="3.2161in" alt="Symfonium3">
+  <img src="./images/10000000000002EA0000066376DEB8DB.png" width="1.4862in" height="3.2563in" alt="Symfonium4">
+</div>
+
 
 13. **(Will show you how to connect with Symfonium but procedure is the
 same for the other clients basically) **Go to the settings in Symfonium,
