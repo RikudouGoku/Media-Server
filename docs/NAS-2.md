@@ -546,144 +546,109 @@ multiple ways to go about the OS:
     \| bash" in the terminal and WAIT.
 2.  Go back to the Web UI for OpenMediaVault and press ctrl + shift + R.
 3.  Go into "System" then "omv-extras" and check the box for "Docker
-    repo" and click save and WAIT.
-4.  ![](Pictures/1000000000000EA600000498B39F223F.png){width="6.05in"
-    height="1.8972in"}Go into "Plugins" and search for compose and click
-    on it.
-5.  ![](Pictures/1000000000000EBE0000043E72821E4E.png){width="6.05in"
-    height="1.7402in"}Install it.
-6.  ![](Pictures/1000000000000C200000043489275C7E.png){width="6.05in"
-    height="2.0972in"}If this happens, click on the close button and
-    click on the install button again.
-7.  ![](Pictures/1000000000000B1300000364120D490C.png){width="6.05in"
-    height="1.852in"}If this happens again (did for me), press ctrl +
+    repo" and click save and WAIT.![Docker Install01](./images/1000000000000EA600000498B39F223F.png)
+4.  Go into "Plugins" and search for compose and click
+    on it.![Docker Install02](./images/1000000000000EBE0000043E72821E4E.png)
+5.  Install it.![Docker Install03](./images/1000000000000C200000043489275C7E.png)
+6.  If this happens, click on the close button and
+    click on the install button again.![Docker Install04](./images/1000000000000B1300000364120D490C.png)
+7.  If this happens again (did for me), press ctrl +
     shift + R and check the page if it has not been installed already,
-    it did for me.
-8.  ![](Pictures/1000000000000C56000004AC2F41F9CA.png){width="6.05in"
-    height="2.2909in"}Go to "Storage" and then "shared folders" and
-    click on the plus icon.
-9.  ![](Pictures/1000000000000ED3000004439BE13CB9.png){width="6.05in"
-    height="1.739in"}Name the shared folder docker (where docker related
+    it did for me.![Docker Install05](./images/1000000000000C56000004AC2F41F9CA.png)
+8.  Go to "Storage" and then "shared folders" and
+    click on the plus icon.![Docker Install06](./images/1000000000000ED3000004439BE13CB9.png)
+9.  Name the shared folder docker (where docker related
     files will be stored) and select the drive you want it to be on, in
     my case I want it to be on my NVME SSD (and its the only drive I
     have right now) and click save and click on the apply button when
     the yellow popup comes up.
-10. ![](Pictures/1000000000000C2C0000030C2CA3DABF.png){width="6.05in"
-    height="1.5138in"}Create another shared folder called "compose" and
-    select the same drive. Then save and apply.
+10. ![Docker Install07](./images/1000000000000C2C0000030C2CA3DABF.png)Create another shared folder called "compose" and
+    select the same drive. Then save and apply. ![Docker Install08](./images/1000000000000C34000003273669AF90.png)
 
-![](Pictures/1000000000000C34000003273669AF90.png){width="6.05in"
-height="1.5626in"}
+11. Go to "users" and then "groups" and create a "docker-group"![Docker Install09](./images/1000000000000EB4000004385C5D3E8C.png)
 
-1.  Go to "users" and then "groups" and create a "docker-group"
+12. Then click on it and then the "shared folder
+    permissions" button![Docker Install10](./images/1000000000000C5700000177FA7C7744.png)
 
-2.  ![](Pictures/1000000000000EB4000004385C5D3E8C.png){width="6.05in"
-    height="1.7354in"}Then click on it and then the "shared folder
-    permissions" button
+13. Give it
+    read/write access and save.![Docker Install11](./images/1000000000000EB000000288724FC50B.png)
 
-3.  ![](Pictures/1000000000000C5700000177FA7C7744.png){width="6.05in"
-    height="0.7173in"}Give it
-    rea![](Pictures/1000000000000EB000000288724FC50B.png){width="5.0535in"
-    height="1.0425in"}d/write access and save.
-
-4.   Go to "users" and then "users" and click the plus icon to create
+14. Go to "users" and then "users" and click the plus icon to create
     another user, name it "dockeruser" (or whatever but this is for
     docker specifically), give it a password and put it inside "docker",
     "docker-group", "openmediavault-admin", "openmediavault-config" and
     "sambashare" groups. And click on the "disallow account
-    modificiation. Then save and apply.
+    modificiation. Then save and apply. ![Docker Install12](./images/1000000000000ED1000005E2541A000F.png)
 
-    ![](Pictures/1000000000000ED1000005E2541A000F.png){width="6.05in"
-    height="2.4035in"}
-
-5.  Go to "services", "compose" and "settings" and select the compose
+15. Go to "services", "compose" and "settings" and select the compose
     folder under the shared folder for compose files and select the
     docker folder under data, scroll all the way to to the bottom and
-    click save and apply changes with the yellow popup.
+    click save and apply changes with the yellow popup.![Docker Install13](./images/1000000000000E8B00000348578F7BD4.png)
 
-6.  ![](Pictures/1000000000000E8B00000348578F7BD4.png){width="6.05in"
-    height="1.3646in"}Then click on the reinstall docker button and
-    WAIT.
+16. Then click on the reinstall docker button and
+    WAIT.![Docker Install14](./images/1000000000000C1600000586703EB53E.png)
 
-7.  ![](Pictures/1000000000000C1600000586703EB53E.png){width="6.05in"
-    height="2.7646in"} Click close when done.
+17. Click close when done.![Docker Install15](./images/1000000000000B18000001F3B9BA7C77.png)
 
-8.  ![](Pictures/1000000000000B18000001F3B9BA7C77.png){width="6.05in"
-    height="1.0626in"}SSH into the Pi with the terminal and type in
+18. SSH into the Pi with the terminal and type in
     "docker compose version", then "docker ps", then "docker -v", then
     "id admin" and lastly "id dockeruser". To check that docker and
     compose are installed properly and to check the ID of the
     dockeruser.
 
-    ![](Pictures/1000000000000648000001FADB5DDE47.png){width="6.05in"
-    height="1.9035in"}
+    ![Docker Install16](./images/1000000000000648000001FADB5DDE47.png)
 
-9.  **(You may skip this step to the end of this chapter if you prefer
+19. **(You may skip this step to the end of this chapter if you prefer
     to manage your Docker Containers via OpenMediaVault, I am used to
     Portainer from my Synology NAS and it has templates that makes
-    installing containers easier) **Go to "services", "compose" and
+    installing containers easier)** Go to "services", "compose" and
     "files". Click on the plus icon and then select "portainer --
-    portainer" and name it "portainer" and save and apply.
+    portainer" and name it "portainer" and save and apply.![Docker Install17](./images/1000000000000EB50000029AA9DF5CE5.png)
 
-10. ![](Pictures/1000000000000EB50000029AA9DF5CE5.png){width="6.05in"
-    height="1.0701in"}Go to the "storage", "shared folders" page and
-    copy the absolute path for the docker folder.
+20. Go to the "storage", "shared folders" page and
+    copy the absolute path for the docker folder.![Docker Install18](./images/1000000000000EA90000025737154ACC.png)
 
-11. ![](Pictures/1000000000000EA90000025737154ACC.png){width="6.05in"
-    height="0.9654in"}Go back to the "services", "compose" and "files"
-    page and click on the edit button for portainer.
+21. Go back to the "services", "compose" and "files"
+    page and click on the edit button for portainer.![Docker Install19](./images/1000000000000AE4000001DE9A9CA18C.png)
 
-12. ![](Pictures/1000000000000AE4000001DE9A9CA18C.png){width="6.05in"
-    height="1.0366in"}Then change the "CHANGE_TO_COMPOSE_DATA_PATH" to
-    the absolute path for the docker folder from step 20.
+22. Then change the "CHANGE_TO_COMPOSE_DATA_PATH" to
+    the absolute path for the docker folder from step 20.![Docker Install20](./images/10000000000005DE000003B57EF2BA8E.png)
 
-13. ![](Pictures/10000000000005DE000003B57EF2BA8E.png){width="6.05in"
-    height="3.822in"}Click save
+23. Click save![Docker Install21](./images/1000000000000C31000004B16FF21E73.png)
 
-14. ![](Pictures/1000000000000C31000004B16FF21E73.png){width="6.05in"
-    height="2.328in"}Now click on portainer and click on the up icon and
-    wait.
+24. Now click on portainer and click on the up icon and
+    wait.![Docker Install22](./images/1000000000000DBD000002C7557277F9.png)
 
-15. ![](Pictures/1000000000000DBD000002C7557277F9.png){width="6.05in"
-    height="1.2228in"}When "end of line" appears, click close.
+25. When "end of line" appears, click close.![Docker Install23](./images/1000000000000B14000003412E367C15.png)
 
-16. ![](Pictures/1000000000000B14000003412E367C15.png){width="6.05in"
-    height="1.7764in"}Go to the "services" page and you can see the
-    container running.
+26. Go to the "services" page and you can see the
+    container running.![Docker install24](./images/1000000000000EAF0000036827E10521.png)
 
-17. ![](Pictures/1000000000000EAF0000036827E10521.png){width="6.05in"
-    height="1.4035in"}Open
-    "[http://192.168.0.200:9000](http://192.168.0.200:9000/)" in another
+27. Open
+    "[http://IPADDRESS:9000](http://IPADDRESS:9000/)" in another
     page in the browser and create your account.
 
-18. Click "get started"
+28. Click "get started" ![Docker Install25](./images/10000000000008D0000004E6FCFC93F3.png)
 
-19. ![](Pictures/10000000000008D0000004E6FCFC93F3.png){width="6.05in"
-    height="3.3626in"}Then the edit icon.
+19. Then the edit icon.![Docker Install26](./images/1000000000000C74000002B7A9DAFBA7.png)
 
-20. ![](Pictures/1000000000000C74000002B7A9DAFBA7.png){width="6.05in"
-    height="1.3189in"}Add the IP address of the Pi there and click on
-    the "update environment".
+20. Add the IP address of the Pi there and click on
+    the "update environment".![Docker Install27](./images/1000000000000A670000044A69041663.png)
 
-21. ![](Pictures/1000000000000A670000044A69041663.png){width="6.05in"
-    height="2.4945in"}Environment updated to local should be seen.
+21. Environment updated to local should be seen.![Docker Install28](./images/1000000000000B6A00000417A716AC0A.png)
 
-22. ![](Pictures/1000000000000B6A00000417A716AC0A.png){width="6.05in"
-    height="2.1673in"}Click on "registries" and "add registry"
+22. Click on "registries" and "add registry"![Docker Install29](./images/1000000000000EAD00000373F5C100A6.png)
 
-23. ![](Pictures/1000000000000EAD00000373F5C100A6.png){width="6.05in"
-    height="1.4217in"}Click on "custom registry" and put "GHCR" under
-    name and "ghcr.io" under URL then add registry button.
+23. Click on "custom registry" and put "GHCR" under
+    name and "ghcr.io" under URL then add registry button.![Docker Install30](./images/1000000000000C81000004FB69483D8F.png)
 
-24. ![](Pictures/1000000000000C81000004FB69483D8F.png){width="6.05in"
-    height="2.4091in"}Repeat step 33 twice, first with "CODEBERG" under
+24. Repeat step 33 twice, first with "CODEBERG" under
     name and "codeberg.org" under URL and then with "Quay.io" under name
     and "quay.io" under URL.
 
 25. Should look like this.
 
-26. ![](Pictures/1000000000000C74000002FB813D3FAD.png){width="6.05in"
-    height="1.4472in"} Go to the next chapter "copying music folder"
+26. ![Docker Install31](./images/1000000000000C74000002FB813D3FAD.png) Go to the next chapter "copying music folder"
 
 # []{#anchor-11}File Transfer and Synchronization
 
@@ -1230,7 +1195,7 @@ height="4.9835in"}
 |                                  |                                  |
 |                                  |  - Uptime Kuma:                  |
 |                                  |                                  |
-|                                  | href: http://192.168.0.200:3001  |
+|                                  | href: http://IPADDRESS:3001  |
 |                                  |                                  |
 |                                  | icon:                            |
 |                                  | https://c                        |
