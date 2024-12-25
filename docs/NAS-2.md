@@ -364,8 +364,7 @@ multiple ways to go about the OS:
     single partition called "mmcblk1p1"
 4.  Now we need to create 2 partitions for the nvme, type in
 5.   Now type in "armbian-install" and this is what you should see:
-6.  ![Armbian-Install1](./images/1000000000000610000002E1A55D6505.png)
-Select option 7 (use arrow keys to navigate) and
+6.  ![Armbian-Install1](./images/1000000000000610000002E1A55D6505.png)Select option 7 (use arrow keys to navigate) and
     click yes and WAIT (no progress bar so might look like it is not
     doing anything but WAIT, took me around 5 minutes).
 7.  ![Armbian-Install2](./images/1000000000000542000002D7BF32F362.png)After you get the done message, you might need to
@@ -375,29 +374,23 @@ Select option 7 (use arrow keys to navigate) and
 8.  ![Armbian-Install3](./images/10000000000005F0000001A5C506B6FA.png)Click proceed to the automated installation.
 9.  ![Armbian-Install4](./images/1000000000000493000001B4307847F4.png)Select ok and it will create a single partition
     "nvme0n1p1".
-10. ![](Pictures/100000000000054B000001F917B60589.png){width="6.05in"
-    height="2.2543in"}yes.
-11. ![](Pictures/1000000000000599000002AD65109BB9.png){width="6.05in"
-    height="2.8925in"}If you have an nvme that is bigger than 1TB, then
+10. ![Armbian-Install5](./images/100000000000054B000001F917B60589.png)yes.
+11. ![Armbian-Install6](./images/1000000000000599000002AD65109BB9.png)If you have an nvme that is bigger than 1TB, then
     I would go for btrfs since it is beneficial for OpenMediaVault, but
     since I only have 1TB I cannot use that and need to go for ext4,
     click ok and WAIT.
-12. ![](Pictures/1000000000000529000001EFF297A418.png){width="6.05in"
-    height="2.2665in"}![](Pictures/100000000000052F000001B002C2BAB5.png){width="6.05in"
-    height="1.9693in"} Click yes (already did this but do it again to be
+12. ![Armbian-Install7](./images/1000000000000529000001EFF297A418.png)![Armbian-Install8](./images/100000000000052F000001B002C2BAB5.png) Click yes (already did this but do it again to be
     sure) and WAIT.
 13. When done select "power off", wait a minute or two to make sure it
     has been turned off properly (the LED should still be on with red
     color indicating that it is connected to a power cable).
-14. ![](Pictures/10000000000005F2000001A9F1B2FDBE.png){width="6.3in"
-    height="1.7583in"}Go to the Pi and remove the sd card then click on
+14. ![Armbian-Install9](./images/10000000000005F2000001A9F1B2FDBE.png)Go to the Pi and remove the sd card then click on
     the power button on the Pi. Go back to the router page and check if
     the IP address is still the same or not, in my case it changed from
     114 to 113 at the end. Go to the Terminal and ssh into it again
     using "ssh <root@192.168.0.113>" and type in the root password.
 15. Now if you
-    mana![](Pictures/100000000000042D0000018E06A22A7E.png){width="5.5681in"
-    height="2.0728in"}ged to boot into it, we already know it is a
+    mana![ArmbianInstall10](./images/100000000000042D0000018E06A22A7E.png)ged to boot into it, we already know it is a
     success but you can check with the "lsblk" command in the terminal.
 16. Armbian is now installed, run "sudo apt update" if there are
     upgrades available, run "sudo apt upgrade". You may keep the SD Card
