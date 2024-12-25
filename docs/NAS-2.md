@@ -421,10 +421,8 @@ multiple ways to go about the OS:
 # []{#anchor-6}**Permanent IP Address** 
 
 1.  Go to the router web ui page and set a permanent IP address for the
-    Pi so it
-    ![](Pictures/100000000000083100000499C0364B40.png){width="6.3in"
-    height="3.5354in"}does not change. Every brand is different, so look
-    up how to do it on yours.
+    Pi so it does not change. Every brand is different, so look
+    up how to do it on yours. ![DHCP](./images/100000000000083100000499C0364B40.png)
 2.  Type in "reboot" in the terminal to reboot and get the new and
     permanent IP address you assigned to it. Then when you SSH into it
     you need to use the new IP address. Example if you gave it
@@ -436,35 +434,25 @@ multiple ways to go about the OS:
 
 1.  Type in "ip addr" in the terminal, check which one is in use between
     the interfaces (ignore the first "lo"), here it is the
-    enP4p65s0.![](Pictures/100000000000064E000002D65AC1B528.png){width="6.05in"
-    height="2.7209in"}
+    enP4p65s0.![ip addr](./images/100000000000064E000002D65AC1B528.png)
 2.  Type in "curl -sSL https://install.pi-hole.net \| bash" in the
     terminal to run the automatic installer. You should see this
     afterwards.
-3.  ![](Pictures/100000000000062200000383094DE9D3.png){width="6.05in"
-    height="3.4638in"}Click ok, twice, then continue when it says you
+3.  ![Pi-hole Install1](./images/100000000000062200000383094DE9D3.png)Click ok, twice, then continue when it says you
     need a static IP which we already did in the previous chapter.
 4.  Select the interface that is in use which we found out in step 1 to
     be
-    enP4p65s0![](Pictures/10000000000005890000030F82B48FE5.png){width="6.05in"
-    height="3.3425in"} here.
+    enP4p65s0![Pi-hole Install2](./images/10000000000005890000030F82B48FE5.png) here.
 5.  Select the upstream DNS provider, I picked Cloudflare.
-6.  ![](Pictures/10000000000005B000000329970FA549.png){width="6.05in"
-    height="3.361in"}Select yes to use the default block list.
-7.  ![](Pictures/100000000000057F000003164CE40C7D.png){width="6.05in"
-    height="3.3965in"}Select yes to have Web UI to manage it easier.
-8.  ![](Pictures/10000000000005A500000313760892D1.png){width="6.05in"
-    height="3.2945in"}Yes.
-9.  ![](Pictures/1000000000000596000003273653CE98.png){width="6.05in"
-    height="3.4138in"}Yes
-10. ![](Pictures/10000000000005B100000328EEA3E303.png){width="6.05in"
-    height="3.3547in"} Select "show everything" and then WAIT.
-11. ![](Pictures/10000000000005CB000002F56D61A6AC.png){width="6.05in"
-    height="3.0874in"}Open up the web page by opening a new tab in your
+6.  ![Pi-hole Install3](./images/10000000000005B000000329970FA549.png)Select yes to use the default block list.
+7.  ![Pi-hole Install4](./images/100000000000057F000003164CE40C7D.png)Select yes to have Web UI to manage it easier.
+8.  ![Pi-hole Install5](./images/10000000000005A500000313760892D1.png)Yes.
+9.  ![Pi-hole Install6](./images/1000000000000596000003273653CE98.png)Yes
+10. ![Pi-hole Install7](./images/10000000000005B100000328EEA3E303.png) Select "show everything" and then WAIT.
+11. ![Pi-hole Install8](./images/10000000000005CB000002F56D61A6AC.png)Open up the web page by opening a new tab in your
     browser and type "192.168.0.50/admin" (example IP) then log in with
     the password shown (SAVE IT) Click ok when done.
-12. ![](Pictures/10000000000005950000032A5CD24C42.png){width="6.05in"
-    height="3.4291in"}Go to the next chapter "Install PiVPN"
+12. ![Pi-hole Install9](./images/10000000000005950000032A5CD24C42.png)Go to the next chapter "Install PiVPN"
 
 # []{#anchor-8}Install PiVPN
 
