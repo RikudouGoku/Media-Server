@@ -403,8 +403,8 @@ multiple ways to go about the OS:
 
 1.  Change the port used for SSH to improve security, pick a random
     number between 49152--65535.
-2.  Type in "nano /etc/ssh/sshd_config" in the terminal.
-3.  ![sshd_config](./images/100000000000064B000003915F34D4C1.png)Change the port number 22 to the random one you
+2.  Type in "nano /etc/ssh/sshd_config" in the terminal. ![sshd_config](./images/100000000000064B000003915F34D4C1.png)
+3.  Change the port number 22 to the random one you
     picked and remove the "#" symbol. Click ctrl+x on the keyboard to
     exit afterwards and click "y" on the keyboard to save and click
     enter to overwrite the old file with the new one. You can confirm if
