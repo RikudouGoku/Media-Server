@@ -1,0 +1,38 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/service-widgets
+
+- greeting:
+    text_size: md  
+    text: Orange Pi 5 Plus
+ 
+- resources:
+    label: Processor
+    cpu: true
+    expanded: true
+ 
+- resources:
+    label: RAM
+    memory: true
+    expanded: true
+ 
+- resources:
+    label: NVME SSD
+    disk:
+      - /
+    expanded: true
+ 
+
+ 
+- resources:
+    cputemp: true
+    uptime: true
+    units: metric
+
+- search:
+    provider: google
+    target: _blank
+    
+
+
+
