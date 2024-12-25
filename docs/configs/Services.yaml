@@ -1,0 +1,86 @@
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services
+
+- Docker:
+    - Portainer:
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/portainer.png
+        href: http://IPADDRESS:9000
+        description: Docker Environments Management
+        widget:
+          type: portainer
+          url: http://IPADDRESS:9000
+          env: 2
+          key: KEY
+
+- Media:
+    - Navidrome:
+        href: http://IPADDRESS:4040/app/#/album/recentlyAdded?sort=recently_added&order=DESC&filter={}
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/navidrome.png
+
+    - PhotoPrism:
+        href: http://IPADDRESS:2342/library/browse
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/photoprism.png
+        widget:
+          type: photoprism
+          url: http://IPADDRESS:2342
+          username: USERNAME
+          password: PASSWORD
+
+- Network:
+    - Pi-hole:
+        href: http://IPADDRESS/admin/
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/pi-hole.png
+        widget:
+          type: pihole
+          url: http://IPADDRESS/admin/api.php
+          version: 5
+          key: KEY
+
+    - Speedtest Tracker:
+        href: http://IPADDRESS:8765
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/speedtest-tracker-old.png
+        widget:
+          type: speedtest
+          url: http://IPADDRESS:8765
+          bitratePrecision: 1
+
+- System Tools & Monitoring:
+    - Beszel:
+        href: http://IPADDRESS:8090
+        #icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/beszel.png
+        widget:
+          type: beszel
+          url: http://IPADDRESS:8090
+          username: anon@gmail.com #email
+          password: password
+          systemId: ID
+
+    - Dozzle:
+        href: http://IPADDRESS:8889
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/dozzle.png
+
+    - Glances:
+        href: http://IPADDRESS:61208
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/glances.png
+        widget:
+          type: glances
+          url: http://IPADDRESS:61208
+          version: 4 # required only if running glances v4 or higher, defaults to 3
+          metric: process
+          diskUnits: bytes # optional, bytes (default) or bbytes. Only applies to disk
+          refreshInterval: 5000 # optional - in milliseconds, defaults to 1000 or more, depending on the metric
+          pointsLimit: 15 # optional, defaults to 15
+
+    - Uptime Kuma:
+        href: http://IPADDRESS:3001
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/uptime-kuma.png
+
+- Utilities:
+    - Syncthing:
+        href: http://IPADDRESS:8384/
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/syncthing.png
+
+    - FileBrowser:
+        href: http://IPADDRESS:8082/
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/filebrowser.png
+
