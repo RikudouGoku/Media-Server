@@ -1,0 +1,23 @@
+---
+# https://hub.docker.com/r/linuxserver/qbittorrent
+# note that if you just want qBittorent just use the example compose from OpenMediaVault.
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    network_mode: "container:gluetun"  # Use Gluetun's network stack    
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin #CHANGE
+      - WEBUI_PORT=9090
+      - DOCKER_MODS=ghcr.io/t-anc/gsp-qbittorent-gluetun-sync-port-mod:main
+      - GSP_GTN_API_KEY=KEY #CHANGE
+      - GSP_SLEEP=60
+      - GSP_MINIMAL_LOGS=false
+      - GSP_SKIP_INIT_CHECKS=true     
+    volumes:
+      - /docker/qbittorrent/config:/config
+      - /docker/qbittorrent/Downloads:/downloads
+    
+    restart: unless-stopped
