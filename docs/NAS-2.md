@@ -364,19 +364,15 @@ multiple ways to go about the OS:
     single partition called "mmcblk1p1"
 4.  Now we need to create 2 partitions for the nvme, type in
 5.   Now type in "armbian-install" and this is what you should see:
-6.  ![](Pictures/1000000000000610000002E1A55D6505.png){width="6.05in"
-    height="2.872in"}Select option 7 (use arrow keys to navigate) and
+6.  ![Armbian-Install1](./images/1000000000000610000002E1A55D6505.png)Select option 7 (use arrow keys to navigate) and
     click yes and WAIT (no progress bar so might look like it is not
     doing anything but WAIT, took me around 5 minutes).
-7.  ![](Pictures/1000000000000542000002D7BF32F362.png){width="6.05in"
-    height="3.2673in"}After you get the done message, you might need to
+7.  ![Armbian-Install2](./images/1000000000000542000002D7BF32F362.png)After you get the done message, you might need to
     clear the screen type in "clear". Then type in "armbian-install"
     again. This time select option 4. Click proceed to the wipe warning
     and check so it is wiping the nvme drive (nvme0n1)
-8.  ![](Pictures/10000000000005F0000001A5C506B6FA.png){width="6.05in"
-    height="1.6752in"}Click proceed to the automated installation.
-9.  ![](Pictures/1000000000000493000001B4307847F4.png){width="6.05in"
-    height="2.2516in"}Select ok and it will create a single partition
+8.  ![Armbian-Install3](./images/10000000000005F0000001A5C506B6FA.png)Click proceed to the automated installation.
+9.  ![Armbian-Install4](./images/1000000000000493000001B4307847F4.png)Select ok and it will create a single partition
     "nvme0n1p1".
 10. ![](Pictures/100000000000054B000001F917B60589.png){width="6.05in"
     height="2.2543in"}yes.
