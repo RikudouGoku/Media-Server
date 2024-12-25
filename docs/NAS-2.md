@@ -882,99 +882,74 @@ Some suggestions on what you may want on your server.
     from example", just change the first/only volume to "-
     /docker/uptime-kuma/data:/app/data")
 
-1.  Edit the compose file and start it.
+1.  Edit the compose file and start it.![Kuma1](./images/1000000000000915000005364DC2C931.png)
 
-2.  ![](Pictures/1000000000000915000005364DC2C931.png){width="6.05in"
-    height="3.4709in"}Go to "<http://IPADDRESS:3001/>" and create your
-    admin account.
+2.  Go to "<http://IPADDRESS:3001/>" and create your
+    admin account.![Kuma2](./images/10000000000007CB0000056505024C68.png)
 
-3.  ![](Pictures/10000000000007CB0000056505024C68.png){width="6.05in"
-    height="4.1874in"}Click on the "add one" or the green "add new
-    monitor" button.
+3.  Click on the "add one" or the green "add new
+    monitor" button.![Kuma3](./images/1000000000000DE60000039BA13FA7C1.png)
 
-4.  ![](Pictures/1000000000000DE60000039BA13FA7C1.png){width="6.05in"
-    height="1.5689in"}Change "monitor type" to "Ping", give it a name
+4.  Change "monitor type" to "Ping", give it a name
     such as "Orange Pi 5 Plus -- Ping", hostname input the IP address of
     the Pi and under retries set it to 3 (or any number you want).
     Heartbeat interval is at 60 seconds so it checks the Pi every
     miunute, you can change that to 300 seconds for every 5 minutes or
     any other value you want (set retry interval to something lower if
-    you do that).
+    you do that).![Kuma4](./images/1000000000000C160000069994BA3B9E.png)
 
-5.  ![](Pictures/1000000000000C160000069994BA3B9E.png){width="6.05in"
-    height="3.302in"}Click on the "Setup Notification"
+5.  Click on the "Setup Notification"![Kuma5](./images/100000000000082D000005F2C9C51746.png)
 
-6.  ![](Pictures/100000000000082D000005F2C9C51746.png){width="6.05in"
-    height="4.3992in"}There are many different ways to setup
+6.  There are many different ways to setup
     notification, you can use a discord server that you own or use gmail
-    (SMTP).
+    (SMTP).![Kuma6](./images/10000000000007730000069ECD2077A1.png)
 
-7.  ![](Pictures/10000000000007730000069ECD2077A1.png){width="6.05in"
-    height="5.3744in"}Gmail SMTP example, go to
+7.  Gmail SMTP example, go to
     <https://myaccount.google.com/security> and search for app
-    passwords.
+    passwords.![Kuma7](./images/100000000000072C0000036853380978.png)
 
-8.  \-
+8.  Create an app password and give it a name such as
+    Uptime Kuma, save the password that comes up. ![Kuma8](./images/10000000000005BB000004F5AA88786A.png)
 
-9.  ![](Pictures/100000000000072C0000036853380978.png){width="6.05in"
-    height="2.8728in"}Create an app password and give it a name such as
-    Uptime Kuma, save the password that comes up.
-
-    ![](Pictures/10000000000005BB000004F5AA88786A.png){width="6.05in"
-    height="5.2335in"}
-
-10. In Uptime Kuma, click on the setup notification set it to Email
+9.  In Uptime Kuma, click on the setup notification set it to Email
     (SMTP) input "smtp.gmail.com" under hostname, port 587, username is
     your e-mail, password is the password you got from the previous
     step, from Email is your e-mail and To e-mail is where you want it
-    to be sent to, in my case I put the same mail for all 3.
+    to be sent to, in my case I put the same mail for all 3.![Kuma9](./images/1000000000000614000006FAE03989A9.png)
 
-11. ![](Pictures/1000000000000614000006FAE03989A9.png){width="6.05in"
-    height="6.9437in"}Scroll down and click test and you should get a
+10. Scroll down and click test and you should get a
     mail to the e-mail address you inputted then click save.
 
-12. Scroll down to bottom and click on the add button for Tags.
+11. Scroll down to bottom and click on the add button for Tags.![Kuma10](./images/1000000000000A33000006CBA7CC0630.png)
 
-13. ![](Pictures/1000000000000A33000006CBA7CC0630.png){width="6.05in"
-    height="4.0291in"}Create a tag called "Orange Pi 5 Plus" to organize
-    related monitors and give it a color and then add.
+12. Create a tag called "Orange Pi 5 Plus" to organize
+    related monitors and give it a color and then add.![Kuma11](./images/1000000000000676000004809182CFFF.png)
 
-14. ![](Pictures/1000000000000676000004809182CFFF.png){width="6.05in"
-    height="4.2134in"}Then click save.
+13. Then click save.![Kuma12](./images/10000000000008D6000003E78832DAAB.png)
 
-15. ![](Pictures/10000000000008D6000003E78832DAAB.png){width="6.05in"
-    height="2.6717in"}You can do this for other services such as
+14. You can do this for other services such as
     monitoring other Docker Containers, SSH availability. Or websites if
-    you want.
+    you want.![Kuma13](./images/1000000000000DFD0000042244AED030.png)
 
-16. ![](Pictures/1000000000000DFD0000042244AED030.png){width="6.05in"
-    height="1.7866in"}To monitor the SSH availability select "TCP Port",
+15. To monitor the SSH availability select "TCP Port",
     give it a name, input the IP address of the Pi and input the SSH
     port that you picked in the **Change SSH Port (before OpenMediaVault
-    Installation) **chapter and click save.
-
-17. ![](Pictures/10000000000007B20000065048944553.png){width="6.05in"
-    height="4.9626in"}To monitor Navidrome, use "HTTP(s)" for Monitor
+    Installation) **chapter and click save. ![Kuma14](./images/10000000000007B20000065048944553.png)
+16. To monitor Navidrome, use "HTTP(s)" for Monitor
     type, give it a name, the URL (including http:// and the port 4040)
-    and check so the HTTP option method is on GET, save.
+    and check so the HTTP option method is on GET, save. ![Kuma15](./images/1000000000000747000005B24B8ADEAC.png)
 
-18. ![](Pictures/1000000000000747000005B24B8ADEAC.png){width="6.05in"
-    height="4.7339in"}To monitor WireGuard, use a ping monitor and use
+17. To monitor WireGuard, use a ping monitor and use
     the public IP address of WireGuard, you can check the IP address by
-    using terminal/SSH and typing "curl ifconfig.me".
+    using terminal/SSH and typing "curl ifconfig.me".![Kuma16](./images/100000000000072400000668B0CAE988.png)
 
-19. ![](Pictures/100000000000072400000668B0CAE988.png){width="6.05in"
-    height="5.428in"}If you want, you can group all of the related
+18. If you want, you can group all of the related
     monitors in one group by creating a monitor group. Makes it more
-    organized if you want to monitor multiple things.
+    organized if you want to monitor multiple things.![Kuma17](./images/10000000000009C600000610AE0F64E0.png)
 
-20. ![](Pictures/10000000000009C600000610AE0F64E0.png){width="6.05in"
-    height="3.7528in"}If you want to adjust the retention time for
+19. If you want to adjust the retention time for
     monitoring history, you can do so in the settings. (default 180
-    days.)
-
-    ![](Pictures/1000000000000E7F000005B6903A6018.png){width="6.05in"
-    height="2.3835in"}
+    days.) ![Kuma18](./images/1000000000000E7F000005B6903A6018.png)
 
 -   [Homepage](https://gethomepage.dev/): to organize and group all your
     Web UI links (can install from the compose tab in OpenMediaVault
