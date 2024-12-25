@@ -390,8 +390,8 @@ multiple ways to go about the OS:
     114 to 113 at the end. Go to the Terminal and ssh into it again
     using "ssh <root@192.168.0.113>" and type in the root password.
 15. Now if you
-    mana![ArmbianInstall10](./images/100000000000042D0000018E06A22A7E.png)ged to boot into it, we already know it is a
-    success but you can check with the "lsblk" command in the terminal.
+    managed to boot into it, we already know it is a
+    success but you can check with the "lsblk" command in the terminal. ![ArmbianInstall10](./images/100000000000042D0000018E06A22A7E.png)
 16. Armbian is now installed, run "sudo apt update" if there are
     upgrades available, run "sudo apt upgrade". You may keep the SD Card
     as a backup in case something goes wrong later then you just need to
