@@ -809,10 +809,6 @@ multiple ways to go about the OS:
     and [Symfonium](https://symfonium.app/) for Android, for iOS I do
     not use it so check the list yourself.
 
-| ![Symfonium1](./images/10000000000003150000069BA9878869.png) | ![Symfonium2](./images/10000000000002F30000066D75106A97.png) | ![Symfonium3](./images/10000000000002EC0000065BAB2E256A.png) | ![Symfonium4](./images/10000000000002EA0000066376DEB8DB.png) |
-|:-----------------------------------------------------------------:|:-----------------------------------------------------------------:|:-----------------------------------------------------------------:|:-----------------------------------------------------------------:|
-
-
 
 13. **(Will show you how to connect with Symfonium but procedure is the
 same for the other clients basically) **Go to the settings in Symfonium,
@@ -821,7 +817,12 @@ providers", then "add media provider" and select "(open) Subsonic", then
 input the IP address of the Pi (192.168.0.50 for example), port "4040"
 and the admin username and password you created at step 9, then scroll
 to the bottom and click on "add". Wait for it to scan the server and you
-are done! Whenever you want to access your music when you are out of
+are done! 
+| ![Symfonium1](./images/10000000000003150000069BA9878869.png) | ![Symfonium2](./images/10000000000002F30000066D75106A97.png) | ![Symfonium3](./images/10000000000002EC0000065BAB2E256A.png) | ![Symfonium4](./images/10000000000002EA0000066376DEB8DB.png) |
+|:-----------------------------------------------------------------:|:-----------------------------------------------------------------:|:-----------------------------------------------------------------:|:-----------------------------------------------------------------:|
+
+
+14. Whenever you want to access your music when you are out of
 your LAN, you just need to open the WireGuard app and connect to the VPN
 tunnel you created.
 
