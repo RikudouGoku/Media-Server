@@ -1,4 +1,5 @@
-# []{#anchor}2024-11-15: Media server part 2, Orange Pi 5 Plus
+## [2024-11-15: Media server part 2, Orange Pi 5 Plus](#2024-11-15-media-server-part-2-orange-pi-5-plus)
+
 
 So...I ended up buying the Orange Pi 5 Plus (16GB) and it has not been a
 year yet since I bought the Synology DS423+. Why?
