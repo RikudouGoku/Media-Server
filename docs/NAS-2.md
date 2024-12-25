@@ -518,14 +518,14 @@ multiple ways to go about the OS:
     address of your Pi, you should see the login page for OMV, if not
     immediate wait a few minutes and check your router Web UI to see if
     the Pi is still on and active.![OMV Install02](./images/1000000000000529000004F899A64592.png)
-4.  Login with user name "****admin****" and
-    "****openmediavault****" for password.****![OMV Install03](./images/1000000000000ED50000056DEA0FB079.png)
-5.  ****Since OMV uses the same port (80) as Pihole
+4.  Login with user name "**admin**" and
+    "**openmediavault**" for password.![OMV Install03](./images/1000000000000ED50000056DEA0FB079.png)
+5.  Since OMV uses the same port (80) as Pihole
     for the Web UI we need to change it so it does not conflict with
-    pihole.****
-6.  ****SSH into the terminal "ssh
-    ****[**root@IPADDRESS**](mailto:root@IPADDRESS)****" (using the IP
-    address of the Pi).****
+    pihole.
+6.  SSH into the terminal "ssh
+    **[root@IPADDRESS](mailto:root@IPADDRESS)**" (using the IP
+    address of the Pi).
 7.  Type in "omv-firstaid" and select 3 "configure workbench"![OMV Install04](./images/100000000000056E000002A57C3D0A0E.png)
 8.  Change the port to 8080.![OMV Install05](./images/100000000000059300000190A5F22408.png)
 9.  Then use the link it gives you to go to the Web UI
