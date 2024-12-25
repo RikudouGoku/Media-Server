@@ -811,7 +811,7 @@ multiple ways to go about the OS:
 
 
 13. **(Will show you how to connect with Symfonium but procedure is the
-same for the other clients basically) **Go to the settings in Symfonium,
+same for the other clients basically)** Go to the settings in Symfonium,
 click on the settings button to the bottom right, "manage media
 providers", then "add media provider" and select "(open) Subsonic", then
 input the IP address of the Pi (192.168.0.50 for example), port "4040"
