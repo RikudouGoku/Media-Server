@@ -364,7 +364,8 @@ multiple ways to go about the OS:
     single partition called "mmcblk1p1"
 4.  Now we need to create 2 partitions for the nvme, type in
 5.   Now type in "armbian-install" and this is what you should see:
-6.  ![Armbian-Install1](./images/1000000000000610000002E1A55D6505.png)Select option 7 (use arrow keys to navigate) and
+6.  ![Armbian-Install1](./images/1000000000000610000002E1A55D6505.png)
+Select option 7 (use arrow keys to navigate) and
     click yes and WAIT (no progress bar so might look like it is not
     doing anything but WAIT, took me around 5 minutes).
 7.  ![Armbian-Install2](./images/1000000000000542000002D7BF32F362.png)After you get the done message, you might need to
