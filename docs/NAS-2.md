@@ -1,7 +1,7 @@
 # Table of Contents
 - [Media server part 2, Orange Pi 5 Plus](#media-server-part-2-orange-pi-5-plus)
 - [Preparation](#Preparation)
-
+- [Installation/First Boot From SD Card] (#Installation/First Boot From SD Card)
 
 
 ## Media server part 2, Orange Pi 5 Plus
@@ -153,7 +153,7 @@ multiple ways to go about the OS:
 (if using 3 pin I believe (not 100% sure) you want
     to connect the third yellow wire to the GPIO1_A1 pin.)
 
-# []{#anchor-3}Installation/First Boot From SD Card
+## Installation/First Boot From SD Card
 
 1.  Connect the SD card, NVME drive and Ethernet cable to the Pi. Then
     connect the UPS USB-C power cable to the Pi LAST.
