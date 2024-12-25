@@ -810,12 +810,8 @@ multiple ways to go about the OS:
     not use it so check the list yourself.
 
 
-<div style="display: flex;">
-  <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/10000000000003150000069BA9878869.png" width="1.4626in" height="3.1335in" alt="Symfonium1">
-  <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/10000000000002F30000066D75106A97.png" width="1.4846in" height="3.2346in" alt="Symfonium2">
-  <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/10000000000002EC0000065BAB2E256A.png" width="1.4791in" height="3.2161in" alt="Symfonium3">
-  <img src="https://raw.githubusercontent.com/yourusername/yourrepo/main/images/10000000000002EA0000066376DEB8DB.png" width="1.4862in" height="3.2563in" alt="Symfonium4">
-</div>
+![Symfonium1](./images/10000000000003150000069BA9878869.png) ![Symfonium2](./images/10000000000002F30000066D75106A97.png)
+![Symfonium3](./images/10000000000002EC0000065BAB2E256A.png) ![Symfonium4](./images/10000000000002EA0000066376DEB8DB.png)
 
 
 
