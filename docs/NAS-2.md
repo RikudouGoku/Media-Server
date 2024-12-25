@@ -847,21 +847,19 @@ Some suggestions on what you may want on your server.
     Tracker](https://github.com/henrywhitaker3/Speedtest-Tracker): to
     measure your network speed
 
-1.  ![Speedtest1](./images/1000000000000EAB000003FADBFA56A5.png)Go to Portainer and open "Templates", then
+1.  Go to Portainer and open "Templates", then
     "Application" and search for speedtest and click on "Speedtest
-    Tracker".
+    Tracker".![Speedtest1](./images/1000000000000EAB000003FADBFA56A5.png)
 
 2.  Click on "show advanced options", and change volume mapping host to
     "/docker/speedtest-tracker" and click on deploy container.
 
-3.  ![](Pictures/10000000000009DF00000720B56B7206.png){width="6.05in"
-    height="4.3665in"}Then open a new tab and go to
-    "<http://IPADDRESS:8765/>" for the Web UI.
+3.  Then open a new tab and go to
+    "<http://IPADDRESS:8765/>" for the Web UI.![Speedtest2](./images/10000000000009DF00000720B56B7206.png)
 
-4.  ![](Pictures/1000000000000EA10000058DB2EBEE2D.png){width="6.05in"
-    height="2.2953in"}I have mine set to run every 3 hours, you do so by
+4.  I have mine set to run every 3 hours, you do so by
     going to the settings page (top right) and under "schedule" input
-    this "0 \*/3 \* \* \*"
+    this "0 \*/3 \* \* \*"  ![Speedtest3](./images/1000000000000EA10000058DB2EBEE2D.png)
 
 -   [FileBrowser](https://filebrowser.org/features): a file
     browser/editor in Web UI
@@ -872,17 +870,12 @@ Some suggestions on what you may want on your server.
     enable you to browse/edit the whole disk, if you don't want to give
     it full access you can just specify what folders you want it to
     access instead. (But I use the whole disk as it is much more
-    convenient.) Then deploy the container.
-2.  ![](Pictures/1000000000000CA0000006C21579D6D7.png){width="6.05in"
-    height="3.2382in"}Go to "<http://IPADDRESS:8082/>", and login with
+    convenient.) Then deploy the container.![FileBrowser1](./images/1000000000000CA0000006C21579D6D7.png)
+2.  Go to "<http://IPADDRESS:8082/>", and login with
     "admin" for both username and password.
-3.  Change your password by going into settings.
-4.  ![](Pictures/1000000000000EA70000049778EA48E3.png){width="6.05in"
-    height="1.8945in"}Then change your username by going to "user
-    management".
-
-![](Pictures/10000000000008940000071118301792.png){width="6.05in"
-height="4.9835in"}
+3.  Change your password by going into settings.![FileBrowser2](./images/1000000000000EA70000049778EA48E3.png)
+4.  Then change your username by going to "user
+    management". ![FileBrowser3](./images/10000000000008940000071118301792.png)
 
 -   [Uptime-Kuma](https://github.com/louislam/uptime-kuma): monitoring
     tool (can install from the compose tab in OpenMediaVault using "add
