@@ -305,7 +305,7 @@ multiple ways to go about the OS:
     at max power (it is barely audible and drains next to no power).
     Connect to these pins (5V and GND) if using the 2pin adapter:
 
-![Image Description](./images/10000000000007D8000002E8E3698715.png)
+![GPIO Pins](./images/10000000000007D8000002E8E3698715.png)
 
 (if using 3 pin I believe (not 100% sure) you want
     to connect the third yellow wire to the GPIO1_A1 pin.)
@@ -321,8 +321,7 @@ multiple ways to go about the OS:
     look up how to do so on your specific router). Here is how it looks
     for me.
 
-    ![](Pictures/100000000000088C000002357AB7E8D8.png){width="6.05in"
-    height="1.5618in"}
+    ![TP-Link](./images/100000000000088C000002357AB7E8D8.png)
 
 3.  With the IP address known, you then need to use SSH to login to it,
     on Windows 10/11 SSH should be enabled by default otherwise check
