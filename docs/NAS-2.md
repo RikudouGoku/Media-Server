@@ -975,8 +975,8 @@ Some suggestions on what you may want on your server.
     Torrent client and combined with gluetun your ISP will not be able
     to see what you are doing with it. if you are on Proton VPN you
     might want this mod as the port forwarded port changes on every
-    reboot. Here is my compose files for gluetun Gluetun [here](./configs/gluetun.compose) and qbittorrent using
-    Proton VPN with WireGuard and Port Forwarding. (might need this config.toml file as well after you started the containers)
+    reboot. Here is my compose files for [gluetun](./configs/gluetun.compose) and [here](./configs/qBittorrent.compose) using
+    Proton VPN with WireGuard and Port Forwarding. (might need this [config.toml](./configs/config.toml) file as well after you started the containers)
 
 
 
