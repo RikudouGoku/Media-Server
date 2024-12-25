@@ -34,30 +34,22 @@ joshua-riek´s Ubuntu-rockchip version) which is why I disqualified them
 from the start. Then we have 3 versions with the RK3588S SoC (the 5, 5B
 and 5 Pro), 5B does not have support from dietpi but supported on the
 other 2 OS. Which leaves the 5 Plus, 5 and 5 Pro as the candidates.
-Price wise it goes 5 \< 5 Pro \< 5 Plus. The 5 Pro however does NOT have
+Price wise it goes 5 < 5 Pro < 5 Plus. The 5 Pro however does NOT have
 an SPI-Flash, which is needed if you want to be able to install and boot
 from anything else other than the USB/SD-card and since I want to have
 my boot and root partitions on the NVME SSD I bought, the 5 Pro is
 disqualified. So now the final choices are the 5 and the 5 Plus.
 Differences are:
 
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------
-  Orange Pi 5                                                                                                                                                                                                      Orange Pi 5 Plus
+| Feature                | Orange Pi 5                            | Orange Pi 5 Plus                          |
+|------------------------|----------------------------------------|-------------------------------------------|
+| **eMMC socket**         | No eMMC socket                         | Has eMMC socket                          |
+| **LAN ports**           | Single Gigabit LAN port                | Dual 2.5 Gigabit LAN ports               |
+| **USB ports**           | 1 x USB 3.0, 2 x USB 2.0, 1 x USB 3.1 Type-C | 2 x USB 3.0, 2 x USB 2.0, 1 x USB 3.0 Type-C |
+| **PCIe**                | PCIe 2.0 (single lane, ~500 MB/s)      | PCIe 3.0 x4 (up to 4 GB/s)               |
+| **HDMI ports**          | 1 x HDMI 2.1                           | 2 x HDMI 2.1                             |
+| **GPIO header**         | 26-pin GPIO header                     | 40-pin GPIO header                       |
 
-  No eMMC socket (which is not really a problem for me right now but it does leave out room for expansion in the future, eMMC being quite a bit faster than the usual USB/SD-cards, slower than NVME SSD though)   Has eMMC socket
-
-  single Gigabit LAN port (probably won't matter as my Internet speed isn't higher than this)                                                                                                                      dual 2.5 Gigabit ports
-
-  1 x USB 3.0 (very helpful for adding more storage in the future)\                                                                                                                                                2 x USB 3.0\
-  2 x USB 2.0\                                                                                                                                                                                                     2 x USB 2.0\
-  1 x USB 3.1 Type-C                                                                                                                                                                                               1 x USB 3.0 Type-C
-
-  PCIe 2.0 (should be a single lane) = around 500 MB/s theoretical max (8x slower) (2242 compatible) (quite the bottleneck for NVME SSDs and also not compatible with the most common 2280 size)                   PCIe 3.0 x4 = around 4 GB/s theoretical max (2280 compatible)
-
-  1 x HDMI 2.1 (will not use a monitor so this does not matter for me)                                                                                                                                             2 x HDMI 2.1
-
-  GPIO 26 pin header                                                                                                                                                                                               GPIO 40 pin header
-  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------
 
 With all that in mind, I went with the 5 Plus as it is worth the price
 increase to me and I picked the 16 GB version so It is more future proof
