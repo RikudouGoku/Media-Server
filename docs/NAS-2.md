@@ -840,27 +840,24 @@ Some suggestions on what you may want on your server.
 - [gluetun](https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers) (VPN client) + [qBittorent](https://docs.linuxserver.io/images/docker-qbittorrent/): Torrent client and combined with gluetun your ISP will not be able to see what you are doing with it. if you are on Proton VPN you
   might want this mod as the port forwarded port changes on every
   reboot. Here is my compose files for [gluetun](./configs/gluetun.compose) and [qBittorrent](./configs/qBittorrent.compose) using
-  Proton VPN with WireGuard and Port Forwarding. (might need this [config.toml](./configs/config.toml) file as well after you started the containers)
+  Proton VPN with WireGuard and Port Forwarding. (might need this [config.toml](./configs/config.toml) file as well after you started the containers.)
 
 # []{#anchor-14}Improve Security (UNFINISHED)
 
 1. Type in "cat /etc/wireguard/wg0.conf" in the terminal, check what
    address it gives you, using this "10.25.45.1/24" as the example
-   here.
-2. ![](Pictures/10000000000004F2000001C56B0EC65D.png){width="6.05in"
-   height="2.1638in"}Type in "nano /etc/ssh/sshd_config" and scroll
-   down to the "#ListenAddress"
+   here. ![Security01](./images/10000000000004F2000001C56B0EC65D.png)
 
-![](Pictures/1000000000000616000002FF46BE8B67.png){width="6.3in"
-height="3.1008in"}
+2. Type in "nano /etc/ssh/sshd_config" and scroll
+   down to the "#ListenAddress". ![Security02](Pictures/1000000000000616000002FF46BE8B67.png)
 
-1. Remove the "#" sign from both "listenAddress", change the first
+3. Remove the "#" sign from both "listenAddress", change the first
    value to the IP address of your LAN range, for example if your PC
    and Pi have an IP address of 192.168.0.X (X being like 1 on your PC
    and 5 on the Pi or whatever number), then you need to input
    "192.168.0.0/24" in the first one.
-2. \-
-3. 
+4. \-
+5. 
 
 (disable root account and enable SSH access to other users by adding
 "\_ssh" group into them.)
@@ -889,18 +886,17 @@ the 5 Plus it should be negligible).
 
 Here are some suggested values (from ChatGPT)
 
-  ----------- ---------------------------- -------- ----------------------------- ------------------------ --------
+| **RAM**     | **Workload**               | **Storage** | **Disk-based Swap**        | **ZRAM**               | **Swappiness** |
+|-------------|----------------------------|-------------|-----------------------------|------------------------|----------------|
+| **4 GB**    | Light (e.g., desktop, IoT) | SD/USB      | 512 MB disk-based swap      | 512 MB ZRAM            | 10             |
+|             | Heavy (e.g., Docker, ML)   | SD/USB      | Avoid disk-based swap       | 1–2 GB ZRAM            | 10             |
+|             | Heavy                      | SSD         | 2–4 GB disk-based swap      | Optional: 1 GB ZRAM    | 10–20          |
+| **8 GB**    | Light                      | SD/USB      | 512 MB disk-based swap      | 512 MB–1 GB ZRAM       | 5–10           |
+|             | Heavy                      | SD/USB      | Avoid disk-based swap       | 1–2 GB ZRAM            | 10             |
+|             | Heavy                      | SSD         | 4–8 GB disk-based swap      | Optional: 2 GB ZRAM    | 10–20          |
+| **16 GB**   | Light                      | SD/USB      | 256–512 MB disk-based swap  | 512 MB–1 GB ZRAM       | 1–5            |
+|             | Heavy                      | SSD         | 2–4 GB disk-based swap      | Optional: 2–4 GB ZRAM  | 10–15          |
 
-  **4 GB**    Light (e.g., desktop, IoT)   SD/USB   512 MB disk-based swap        512 MB ZRAM              10
-              Heavy (e.g., Docker, ML)     SD/USB   Avoid disk-based swap         1--2 GB ZRAM             10
-              Heavy                        SSD      2--4 GB disk-based swap       Optional: 1 GB ZRAM      10--20
-  **8 GB**    Light                        SD/USB   512 MB disk-based swap        512 MB--1 GB ZRAM        5--10
-              Heavy                        SD/USB   Avoid disk-based swap         1--2 GB ZRAM             10
-              Heavy                        SSD      4--8 GB disk-based swap       Optional: 2 GB ZRAM      10--20
-  **16 GB**   Light                        SD/USB   256--512 MB disk-based swap   512 MB--1 GB ZRAM        1--5
-              Heavy                        SSD      2--4 GB disk-based swap       Optional: 2--4 GB ZRAM   10--15
-
-  ----------- ---------------------------- -------- ----------------------------- ------------------------ --------
 
 B. Disk setup, with the Pi there are a few different ways to setup the
 disks. In a configuration similar to mine with only a single NVME SSD
@@ -1014,20 +1010,16 @@ rsync docker mirror
 
 # []{#anchor-16}NAS comparison
 
-  --------------------------------- ---------------------------------- ------------------------------------------------------------------------------------------- ---------------------------------------------------------------
-
-                                    Orange Pi 5 Plus                   Orange Pi 5 Plus + DAS (TERRAMASTER D4-300)                                                 Synology DS423+
-
-  Price (varies from region/time)   ≈ \$225                            ≈ \$395                                                                                     \$500
-  Size                              Extremely tiny, fits in my palms   Virtually the same size as the DS423+ except with the tiny Pi 5 Plus on top or besides it   2-3 bigger in each direction compared with just the Pi 5 Plus
-  Power usage                                                                                                                                                      
-  Scalability                                                                                                                                                      
-  CPU Performance                                                                                                                                                  
-  Network Speed                                                                                                                                                    
-  Security                                                                                                                                                         
-  Ease of setup                                                                                                                                                    
-
-  --------------------------------- ---------------------------------- ------------------------------------------------------------------------------------------- ---------------------------------------------------------------
+| **Category**               | **Orange Pi 5 Plus**               | **Orange Pi 5 Plus + DAS (TERRAMASTER D4-300)**                                    | **Synology DS423+**                                                   |
+|----------------------------|-------------------------------------|-----------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| **Price** (varies by region/time) | ≈ $225                            | ≈ $395                                                                            | $500                                                                  |
+| **Size**                   | Extremely tiny, fits in my palms    | Virtually the same size as the DS423+ except with the tiny Pi 5 Plus on top or beside it | 2–3x larger in each direction compared with just the Pi 5 Plus         |
+| **Power usage**            |                                     |                                                                                   |                                                                        |
+| **Scalability**            |                                     |                                                                                   |                                                                        |
+| **CPU Performance**        |                                     |                                                                                   |                                                                        |
+| **Network Speed**          |                                     |                                                                                   |                                                                        |
+| **Security**               |                                     |                                                                                   |                                                                        |
+| **Ease of setup**          |                                     |                                                                                   |                                                                        |
 
 Note: the Pi 5 Plus setup is with the 16GB RAM option with the case, sd
 card, heatsink, fan, UPS, batteries and charger. Does not include
@@ -1035,16 +1027,13 @@ storage cost.
 
 # []{#anchor-17}Streaming self hosted compared to services
 
-  ---------------------------- ------------------------ ------------------------ ----------------------- ---------------------------------------------
-
-  Service                      **Upfront Cost (USD)**   **Monthly Cost (USD)**   **Yearly Cost (USD)**   **Time to Match Self-Hosted Cost (Months)**
-  **Orange Pi 5 Plus Setup**   ≈ \$186                  \$0                      \$0                     \-
-  **Apple Music**              \$0                      \$10.99                  \$131.88                17 Months
-  **Tidal HiFi**               \$0                      \$10.99                  \$131.88                17 Months
-  **Spotify Premium**          \$0                      \$11.99                  \$143.88                16 Months
-  YouTube Music                \$0                      \$10.99                  \$131.88                17 Months
-
-  ---------------------------- ------------------------ ------------------------ ----------------------- ---------------------------------------------
+| **Service**                 | **Upfront Cost (USD)** | **Monthly Cost (USD)** | **Yearly Cost (USD)** | **Time to Match Self-Hosted Cost (Months)** |
+|-----------------------------|------------------------|-------------------------|------------------------|---------------------------------------------|
+| **Orange Pi 5 Plus Setup**  | ≈ $186                | $0                     | $0                    | -                                           |
+| **Apple Music**             | $0                    | $10.99                 | $131.88               | 17 Months                                   |
+| **Tidal HiFi**              | $0                    | $10.99                 | $131.88               | 17 Months                                   |
+| **Spotify Premium**         | $0                    | $11.99                 | $143.88               | 16 Months                                   |
+| **YouTube Music**           | $0                    | $10.99                 | $131.88               | 17 Months                                   |
 
 Note: the Pi 5 Plus setup is with the 4GB RAM option with the case, sd
 card, heatsink, fan, UPS, batteries, charger along with a 500GB NVME
