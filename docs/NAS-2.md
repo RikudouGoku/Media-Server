@@ -13,6 +13,7 @@
 - [File Transfer and Synchronization](#file-transfer-and-synchronization)
 - [Install Navidrome](#install-navidrome)
 - [What to install next?](#what-to-install-next)
+- [Update](#update)
 - [Backup](#backup)
 
 ## Media server part 2, Orange Pi 5 Plus
@@ -848,6 +849,12 @@ Some suggestions on what you may want on your server.
   Proton VPN with WireGuard and Port Forwarding. (might need this [config.toml](./configs/config.toml) file as well after you started the containers.)
   
   
+
+# Update
+
+OS and docker update...
+
+# 
 
 # Backup
 
