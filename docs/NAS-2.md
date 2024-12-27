@@ -14,8 +14,8 @@
 - [Install Navidrome](#install-navidrome)
 - [What to install next?](#what-to-install-next)
 - [Update](#update)
-- [OS update](#os-update)
-- [Docker update](#docker-update)
+  - [OS update](#os-update)
+  - [Docker update](#docker-update)
 - [Backup](#backup)
 
 ## Media server part 2, Orange Pi 5 Plus
