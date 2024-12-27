@@ -847,22 +847,29 @@ Some suggestions on what you may want on your server.
   might want this mod as the port forwarded port changes on every
   reboot. Here is my compose files for [gluetun](./configs/gluetun.compose) and [qBittorrent](./configs/qBittorrent.compose) using
   Proton VPN with WireGuard and Port Forwarding. (might need this [config.toml](./configs/config.toml) file as well after you started the containers.)
-  
-  
 
 # Update
 
 OS and docker update...
 
-# 
+1. When there is an update for the OS you will see a notification in the OpenMediaVault webui, click on it and then click on the "Updates available" notification.
+    ![](images/2024-12-27-19-36-04-image.png) | ![](images/2024-12-27-19-36-23-image.png) 
+
+2. It will open the System, Update management, Updates page. And it should show updates. Click on the download icon. 
+   ![](images/2024-12-27-19-38-49-image.png)
+
+3. Then confirm and click yes.
+   ![](images/2024-12-27-19-44-17-image.png)
+
+4. ...
+
+
 
 # Backup
 
 backup...
 
 Initial clone via rsync, then edit the job for incremental backups (enable delete and schedule).
-
-
 
 # []{#anchor-14}Improve Security (UNFINISHED)
 
