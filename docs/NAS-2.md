@@ -14,6 +14,8 @@
 - [Install Navidrome](#install-navidrome)
 - [What to install next?](#what-to-install-next)
 - [Update](#update)
+- [OS update](#os-update)
+- [Docker update](#docker-update)
 - [Backup](#backup)
 
 ## Media server part 2, Orange Pi 5 Plus
@@ -850,9 +852,9 @@ Some suggestions on what you may want on your server.
 
 # Update
 
-OS and docker update...
+## OS update
 
-1. When there is an update for the OS you will see a notification in the OpenMediaVault webui, click on it and then click on the "Updates available" notification.
+1. When there is an update for the OS you will see a notification in the OpenMediaVault webui, click on it and then click on the "Updates available" notification. (Security updates are automatically installed already.)
     ![](images/2024-12-27-19-36-04-image.png) | ![](images/2024-12-27-19-36-23-image.png) 
 
 2. It will open the System, Update management, Updates page. And it should show updates. Click on the download icon. 
@@ -864,6 +866,8 @@ OS and docker update...
 4. Wait until "END OF LINE" shows and click close, the page should refresh automatically and the update notification is gone.
    ![](images/2024-12-27-19-47-11-image.png)
    ![](images/2024-12-27-19-48-03-image.png)
+
+## Docker update
 
 
 
