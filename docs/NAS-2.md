@@ -832,7 +832,7 @@ Some suggestions on what you may want on your server.
   first via terminal/SSH).
 - [Vaultwarden](https://github.com/dani-garcia/vaultwarden): password
   manager
-- [Jellyfin](https://jellyfin.org/): Media server ([Guide]((https://akashrajpurohit.com/blog/setup-jellyfin-with-hardware-acceleration-on-orange-pi-5-rockchip-rk3558/)))
+- [Jellyfin](https://jellyfin.org/): Media server [Guide]([url](https://akashrajpurohit.com/blog/setup-jellyfin-with-hardware-acceleration-on-orange-pi-5-rockchip-rk3558/))
 - [Unbound](https://docs.pi-hole.net/guides/dns/unbound/): eliminates
   need for Pi-hole to rely on 3^rd^ party upstream DNS providers (like
   Google) and is instead fully self hosted/local. Improves privacy and
