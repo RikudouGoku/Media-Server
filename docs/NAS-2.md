@@ -861,7 +861,9 @@ OS and docker update...
 3. Then confirm and click yes.
    ![](images/2024-12-27-19-44-17-image.png)
 
-4. ...
+4. Wait until "END OF LINE" shows and click close, the page should refresh automatically and the update notification is gone.
+   ![](images/2024-12-27-19-47-11-image.png)
+   ![](images/2024-12-27-19-48-03-image.png)
 
 
 
