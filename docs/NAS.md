@@ -116,7 +116,7 @@ more ram.
 
 Extreme budget:
 
-- [Orange Pi Zero 2 W]([https://www.aliexpress.com/item/1005005979335218.html)
+- [Orange Pi Zero 2 W](https://www.aliexpress.com/item/1005005979335218.html)
 
 Super budget:
 
@@ -239,7 +239,5 @@ terrible in many ways. I myself have just recently switched over to
 Linux, specifically the Linux Mint distribution as I found it the most
 similar to Windows (Zorin OS is another alternative). And if you are
 using Bluetooth on your PC, switching to Linux is a big advantage for it
-as you will then have access to SBC-XQ which is comparable to APTX HD (
-<http://soundexpert.org/articles/-/blogs/audio-quality-of-sbc-xq-bluetooth-audio-codec>
-) (Every bluetooth device has SBC as it is the mandatory default codec
+as you will then have access to [SBC-XQ]([Audio quality of SBC XQ Bluetooth audio codec - Articles - SoundExpert](http://soundexpert.org/articles/-/blogs/audio-quality-of-sbc-xq-bluetooth-audio-codec)) which is comparable to APTX HD (Every bluetooth device has SBC as it is the mandatory default codec
 which also means it has SBC-XQ support).
