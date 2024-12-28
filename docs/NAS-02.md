@@ -877,6 +877,14 @@ backup...
 
 Initial clone via rsync, then edit the job for incremental backups (enable delete and schedule).
 
+
+
+# Troubleshooting
+
+- If the webui for OpenMediaVault just keeps loading but you can still use SSH and use the docker containers, try to reboot using the Terminal/SSH (sudo reboot) or clear the browser cache (CTRL+SHIFT+R) and it should be fixed. 
+
+
+
 # []{#anchor-14}Improve Security (UNFINISHED)
 
 1. Type in "cat /etc/wireguard/wg0.conf" in the terminal, check what
