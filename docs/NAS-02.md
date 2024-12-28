@@ -712,10 +712,8 @@ Some suggestions on what you may want on your server.
 - [glances](https://github.com/nicolargo/glances): as a way to monitor
   the performance/resources of the Pi (can install from the compose
   tab in OpenMediaVault using "add from example", just change the
-  third volume to " - /docker/glances:/glances/conf")
-1. ..
+  third volume to " - /docker/glances:/glances/conf")![](images/2024-12-28-04-06-15-image.png)
 
-2. ..![](images/2024-12-28-04-06-15-image.png)
 - [Dozzle](https://dozzle.dev/): log and resource viewer for Docker
   Containers (can install from the compose tab in OpenMediaVault using
   "add from example", just change port 8888 to 8889)
@@ -877,13 +875,9 @@ backup...
 
 Initial clone via rsync, then edit the job for incremental backups (enable delete and schedule).
 
-
-
 # Troubleshooting
 
 - If the webui for OpenMediaVault just keeps loading but you can still use SSH and use the docker containers, try to reboot using the Terminal/SSH (sudo reboot) or clear the browser cache (CTRL+SHIFT+R) and it should be fixed. 
-
-
 
 # []{#anchor-14}Improve Security (UNFINISHED)
 
