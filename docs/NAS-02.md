@@ -879,6 +879,8 @@ You can install [Watchtower](https://hub.docker.com/r/v2tec/watchtower) in a doc
 
 2. Name it watchtower and you can copy and paste the code from this [watchtower.compose](./configs/watchtower.compose) file to the code block. Edit the gmail to your own and create an app password like you did with uptime-kuma [here](#GMAIL) and use the created app password for this environment variable: "WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD".
 
+3. Then start the container, and you can check the logs for it in either portainer or Dozzle. (scan interval is set to 86400 seconds = 24 hours, so you either wait 24 hours to see if it really works or change the interval setting to a shorter period first and then adjust it afterwards.) ![](images/2024-12-29-00-49-57-image.png)
+
 # Backup
 
 backup...
