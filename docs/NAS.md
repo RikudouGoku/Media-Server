@@ -202,35 +202,17 @@ recommendations that I have yet to mention:
 - Portainer: GUI for docker management, great tool to manage the other
   containers you have from creating to editing.
 
-- Paperless-ngx: Great tool to gather and organize your
-  
-  > documents/mails, you can use this to automatically convert emails
-  > into documents and then store it in your NAS in a well-organized
-  > method. Example would be to use it to store and organize your
-  > digital receipts.
+- Paperless-ngx: Great tool to gather and organize your documents/mails, you can use this to automatically convert emails into documents and then store it in your NAS in a well-organized method. Example would be to use it to store and organize your digital receipts.
 
-- Stirling PDF: If you work with PDF files this has a TON of features
-  
-  > for them, way too many to list so just take a look [here]([GitHub - Stirling-Tools/Stirling-PDF: #1 Locally hosted web application that allows you to perform various operations on PDF files](https://github.com/Stirling-Tools/Stirling-PDF?tab=readme-ov-file#pdf-features))
+- Stirling PDF: If you work with PDF files this has a TON of features for them, way too many to list so just take a look [here]([GitHub - Stirling-Tools/Stirling-PDF: #1 Locally hosted web application that allows you to perform various operations on PDF files](https://github.com/Stirling-Tools/Stirling-PDF?tab=readme-ov-file#pdf-features))
 
-- Linkwarden: Bookmark manager to collect, organize and archive
-  
-  > webpages. Great for organizing your bookmarks with the help of
-  > tags and other tools as well as automatically take a screenshot,
-  > pdf or html file of the saved site for darchiving.
+- Linkwarden: Bookmark manager to collect, organize and archive webpages. Great for organizing your bookmarks with the help of tags and other tools as well as automatically take a screenshot, pdf or html file of the saved site for archiving.
 
-- Whoogle: Use Google as the search engine but no ads, JavaScript, AMP
-  
-  > links, cookies, or IP address tracking.
+- Whoogle: Use Google as the search engine but no ads, JavaScript, AMP links, cookies, or IP address tracking.
 
 - Redlib: Use Reddit without tracking, ads and bloat.
 
-- IT-Tools: Lots of different features meant mostly for
-  
-  > developers/IT-people but has useful features like generate random
-  > string so that you can use as passwords if you want something
-  > secure and are a bit paranoid about using free online random
-  > generators for your passwords.
+- IT-Tools: Lots of different features meant mostly for developers/IT-people but has useful features like generate random string so that you can use as passwords if you want something secure and are a bit paranoid about using free online random generators for your passwords.
 
 - Pairdrop: Sharing files from device to device quickly and privately.
 
@@ -238,25 +220,17 @@ recommendations that I have yet to mention:
 
 - RSSHub: An RSS feed generator.
 
-- Miniflux: RSS reader, combine this with RSSHub and you can read on
-  
-  > PC. "Read You", is an RSS reader on android.
+- Miniflux: RSS reader, combine this with RSSHub and you can read on PC. "Read You", is an RSS reader on android.
 
 - Syncthing: Continuous file synchronization program.
 
-- Website Shot: Website screenshot tool, useful to take full screen
-  
-  > screenshots in a single picture and can also take them in dark or
-  > light mode.
+- Website Shot: Website screenshot tool, useful to take full screen screenshots in a single picture and can also take them in dark or light mode.
 
 - MeTube: Youtube downloader
 
 - Squoosh: An image compression web app that reduces image sizes
 
-- Grafana & Prometheus: System monitoring and display system, it is
-  
-  > what I use to monitor my NAS and gives more detailed info on
-  > resource consumption.
+- Grafana & Prometheus: System monitoring and display system, it is what I use to monitor my NAS and gives more detailed info on resource consumption.
 
 Oh and lastly some side notice, If your PC is still on Windows 10,
 Microsoft will end their support of it next year (October 14^th^). I
