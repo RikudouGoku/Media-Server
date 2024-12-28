@@ -777,7 +777,7 @@ Some suggestions on what you may want on your server.
    notification, you can use a discord server that you own or use gmail
    (SMTP).![Kuma6](./images/10000000000007730000069ECD2077A1.png)
 
-7. Gmail SMTP example, go to
+7. <span id="GMAIL">Gmail SMTP</span> example, go to
    <https://myaccount.google.com/security> and search for app
    passwords.![Kuma7](./images/100000000000072C0000036853380978.png)
 
@@ -850,6 +850,10 @@ Some suggestions on what you may want on your server.
   reboot. Here is my compose files for [gluetun](./configs/gluetun.compose) and [qBittorrent](./configs/qBittorrent.compose) using
   Proton VPN with WireGuard and Port Forwarding. (might need this [config.toml](./configs/config.toml) file as well after you started the containers.)
 
+- [paperless-ngx]([GitHub - paperless-ngx/paperless-ngx: A community-supported supercharged version of paperless: scan, index and archive all your physical documents](https://github.com/paperless-ngx/paperless-ngx)): Document management, save physical or digital documents and organize them.
+
+- [stirling-pdf]([GitHub - Stirling-Tools/Stirling-PDF: #1 Locally hosted web application that allows you to perform various operations on PDF files](https://github.com/Stirling-Tools/Stirling-PDF)): PDF editor/tool.
+
 # Update
 
 ## OS update
@@ -868,6 +872,12 @@ Some suggestions on what you may want on your server.
    ![](images/2024-12-27-19-48-03-image.png)
 
 ## Docker update
+
+You can install [Watchtower](https://hub.docker.com/r/v2tec/watchtower) in a docker container to either have it automatically update all (or selected) containers or use it as a way to be notified when there are updates available.
+
+1. Go to OpenMediaVault and use the compose function and click add.
+
+2. Name it watchtower and you can copy and paste the code from this [watchtower.compose](./configs/watchtower.compose) file to the code block. Edit the gmail to your own and create an app password like you did with uptime-kuma [here](#GMAIL) and use the created app password for this environment variable: "WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD".
 
 # Backup
 
