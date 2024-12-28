@@ -116,7 +116,7 @@ more ram.
 
 Extreme budget:
 
-- [Orange Pi Zero 2 W]([*https://www.aliexpress.com/item/1005005979335218.html)
+- [Orange Pi Zero 2 W]([https://www.aliexpress.com/item/1005005979335218.html)
 
 Super budget:
 
@@ -204,7 +204,7 @@ recommendations that I have yet to mention:
 
 - Paperless-ngx: Great tool to gather and organize your documents/mails, you can use this to automatically convert emails into documents and then store it in your NAS in a well-organized method. Example would be to use it to store and organize your digital receipts.
 
-- Stirling PDF: If you work with PDF files this has a TON of features for them, way too many to list so just take a look [here]([GitHub - Stirling-Tools/Stirling-PDF: #1 Locally hosted web application that allows you to perform various operations on PDF files](https://github.com/Stirling-Tools/Stirling-PDF?tab=readme-ov-file#pdf-features))
+- Stirling PDF: If you work with PDF files this has a TON of features for them, way too many to list so just take a look [here](https://github.com/Stirling-Tools/Stirling-PDF?tab=readme-ov-file#pdf-features).
 
 - Linkwarden: Bookmark manager to collect, organize and archive webpages. Great for organizing your bookmarks with the help of tags and other tools as well as automatically take a screenshot, pdf or html file of the saved site for archiving.
 
