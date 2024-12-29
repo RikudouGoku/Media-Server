@@ -879,17 +879,13 @@ You can install [Watchtower](https://hub.docker.com/r/v2tec/watchtower) in a doc
 
 2. Name it watchtower and you can copy and paste the code from this [watchtower.compose](./configs/watchtower.compose) file to the code block. Edit the gmail to your own and create an app password like you did with uptime-kuma [here](#GMAIL) and use the created app password for this environment variable: "WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD".
 
-3. Then start the container, and you can check the logs for it in either portainer or Dozzle. (scan interval is set to 86400 seconds = 24 hours, so you either wait 24 hours to see if it really works or change the interval setting to a shorter period first and then adjust it afterwards.) ![](images/2024-12-29-00-49-57-image.png)
+3. Then start the container, and you can check the logs for it in either portainer or Dozzle. Sscan interval is set to 86400 seconds = 24 hours, so you either wait 24 hours to see if it really works or change the interval setting to a shorter period first and then adjust it afterwards.![](images/2024-12-29-00-49-57-image.png)![](images/2024-12-29-01-15-30-image.png)
 
 # Backup
 
 backup...
 
 Initial clone via rsync, then edit the job for incremental backups (enable delete and schedule).
-
-# Troubleshooting
-
-- If the webui for OpenMediaVault just keeps loading but you can still use SSH and use the docker containers, try to reboot using the Terminal/SSH (sudo reboot) or clear the browser cache (CTRL+SHIFT+R) and it should be fixed. 
 
 # []{#anchor-14}Improve Security (UNFINISHED)
 
@@ -1057,6 +1053,24 @@ rsync docker mirror
 
 1. -.-
 2. -.-
+
+
+
+# Statistics
+
+## Power consumption
+
+---
+
+
+
+# UPS
+
+An UPS can be a mandatory need, depending on your use of the Pi and/or the frequency of outages where you live. With the Waveshare UPS Module 3S with 3X3200mAh batteries, with the Orange Pi 5 Plus 16GB RAM with 1TB NVME SSD running around 5,5W idle, it can last for around 6 hours. Which is plenty for the extremely rare and/or short outages I get. But do note that this UPS Module 3S does NOT have any support for automatic shutdown so if you want the Pi to automatically shutdown when the UPS switches to battery mode, you would need to buy a "proper" UPS from like Eaton/APC which usually communicates via a USB cable. Trade off would be the MUCH larger size of the UPS from these other brands, more expensive, not as easy to replace batteries and that they likely consume a lot more power than the Pi you are running with it.
+
+# Troubleshooting
+
+- If the webui for OpenMediaVault just keeps loading but you can still use SSH and use the docker containers, try to reboot using the Terminal/SSH (sudo reboot) or clear the browser cache (CTRL+SHIFT+R) and it should be fixed. 
 
 # []{#anchor-16}NAS comparison
 
