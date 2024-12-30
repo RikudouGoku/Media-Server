@@ -881,6 +881,8 @@ You can install [Watchtower](https://hub.docker.com/r/v2tec/watchtower) in a doc
 
 3. Then start the container, and you can check the logs for it in either portainer or Dozzle. Sscan interval is set to 86400 seconds = 24 hours, so you either wait 24 hours to see if it really works or change the interval setting to a shorter period first and then adjust it afterwards.![](images/2024-12-29-00-49-57-image.png)![](images/2024-12-29-01-15-30-image.png)
 
+4. Scanned and there were no updates so it did not send any notification.![](images/2024-12-30-20-33-54-image.png)
+
 # Backup
 
 backup...
@@ -1054,15 +1056,11 @@ rsync docker mirror
 1. -.-
 2. -.-
 
-
-
 # Statistics
 
 ## Power consumption
 
 ---
-
-
 
 # UPS
 
