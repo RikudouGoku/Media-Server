@@ -837,7 +837,7 @@ Some suggestions on what you may want on your server.
 3. Create an account (will have admin access).![](images/2024-12-30-20-59-19-image.png)
 
 4. You can use the Github desktop client for a UI client on your pc.
-- Archivebox: ---
+- [Archivebox]([GitHub - ArchiveBox/ArchiveBox: 🗃 Open source self-hosted web archiving. Takes URLs/browser history/bookmarks/Pocket/Pinboard/etc., saves HTML, JS, PDFs, media, and more...](https://github.com/ArchiveBox/ArchiveBox)): Web archiver.
 1. Go to portainer and search for Archivebox in the templates applications page.
 
 2. Change volume mapping to pic below and deploy (takes a while so just wait).![](images/2024-12-30-22-58-43-image.png)
