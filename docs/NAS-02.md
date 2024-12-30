@@ -830,13 +830,15 @@ Some suggestions on what you may want on your server.
   ![Homepage](./images/2024-12-30-22-48-59-image.png)To get this (very basic) look, just download [services.yaml](./configs/services.yaml) and [widgets.yaml](./configs/widgets.yaml) and put them in your Homepage folder
 
 - [Gitea](https://about.gitea.com/): Your own private Github.
-1. ...
+1. Go to portainer and search for Gitea in the templates applications page (pick Gitea and not the one with Mariadb).
 
-2. Change the SSH port the your port, make sure the server domain specifies the IP Addres of your Pi and you can enable "update checker". Then click Install Gitea.![](images/2024-12-30-20-49-47-image.png)![](images/2024-12-30-20-52-07-image.png)
+2. Change volume mapping to the picture below.![](images/2024-12-30-23-29-50-image.png)
 
-3. Create an account (will have admin access).![](images/2024-12-30-20-59-19-image.png)
+3. Change the SSH port the your port, make sure the server domain specifies the IP Addres of your Pi and you can enable "update checker". Then click Install Gitea.![](images/2024-12-30-20-49-47-image.png)![](images/2024-12-30-20-52-07-image.png)
 
-4. You can use the Github desktop client for a UI client on your pc.
+4. Create an account (will have admin access).![](images/2024-12-30-20-59-19-image.png)
+
+5. You can use the Github desktop client for a UI client on your pc.
 - [Archivebox]([GitHub - ArchiveBox/ArchiveBox: 🗃 Open source self-hosted web archiving. Takes URLs/browser history/bookmarks/Pocket/Pinboard/etc., saves HTML, JS, PDFs, media, and more...](https://github.com/ArchiveBox/ArchiveBox)): Web archiver.
 1. Go to portainer and search for Archivebox in the templates applications page.
 
