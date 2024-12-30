@@ -1,16 +1,26 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/configs/services
 
+- Development:
+    - Gitea:
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/gitea.png
+        href: http://192.168.0.200:8124
+        widget:
+          type: gitea
+          url: http://192.168.0.200:8124
+          key: 1682dd44932dc620ce99e2a3c47332b9ecf7931b
+
+
 - Docker:
     - Portainer:
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/portainer.png
-        href: http://IPADDRESS:9000
+        href: http://192.168.0.200:9000
         description: Docker Environments Management
         widget:
           type: portainer
-          url: http://IPADDRESS:9000
-          env: 2
-          key: KEY
+          url: http://192.168.0.200:9000
+          env: 2          
+          key: ptr_BXOqpOFo8OdZ3vMH6k7zjSUkV7X9mD57mWKtwBCAxi4=
 
 - Media:
     - Navidrome:
