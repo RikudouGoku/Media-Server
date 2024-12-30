@@ -837,6 +837,20 @@ Some suggestions on what you may want on your server.
 3. Create an account (will have admin access).![](images/2024-12-30-20-59-19-image.png)
 
 4. You can use the Github desktop client for a UI client on your pc.
+- Archivebox: ---
+1. Go to portainer and search for Archivebox in the templates applications page.
+
+2. Change volume mapping to pic below and deploy (takes a while so just wait).![](images/2024-12-30-22-58-43-image.png)
+
+3. Open "http://IPADDRESS:8002/"![](images/2024-12-30-23-07-19-image.png)
+
+4. Open terminal/SSH and type:docker exec -it --user=archivebox archivebox /bin/bash -c "archivebox manage createsuperuser" 
+   
+   Then create the username, email and password.![](images/2024-12-30-23-18-56-image.png)
+
+5. Go to the archivebox webui page and click on the login button to the top right. And login with the info you created at step 4.![](images/2024-12-30-23-21-17-image.png)![](images/2024-12-30-23-25-23-image.png)
+   
+    
 - [PhotoPrism](https://www.photoprism.app/): basically your own Google
   photos (follow the steps from Portainer templates, run the script
   first via terminal/SSH).
