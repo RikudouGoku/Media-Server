@@ -718,9 +718,7 @@ Some suggestions on what you may want on your server.
   Containers (can install from the compose tab in OpenMediaVault using
   "add from example", just change port 8888 to 8889)
 
-- [Speedtest
-  Tracker](https://github.com/henrywhitaker3/Speedtest-Tracker): to
-  measure your network speed
+- [Speedtest Tracker](https://github.com/henrywhitaker3/Speedtest-Tracker): to measure your network speed
 1. Go to Portainer and open "Templates", then
    "Application" and search for speedtest and click on "Speedtest
    Tracker".![Speedtest1](./images/1000000000000EAB000003FADBFA56A5.png)
@@ -829,7 +827,7 @@ Some suggestions on what you may want on your server.
   using "add from example", just change the first volume to "-
   /docker/homepage:/app/config")
   
-  ![Homepage](./images/1000000000000E640000070A54C800BB.png)To get this (very basic) look, just download [services.yaml](./configs/services.yaml) and [widgets.yaml](./configs/widgets.yaml) and put them in your Homepage folder
+  ![Homepage](./images/2024-12-30-22-48-59-image.png)To get this (very basic) look, just download [services.yaml](./configs/services.yaml) and [widgets.yaml](./configs/widgets.yaml) and put them in your Homepage folder
 
 - [Gitea](https://about.gitea.com/): Your own private Github.
 1. ...
