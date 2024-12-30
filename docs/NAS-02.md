@@ -831,6 +831,14 @@ Some suggestions on what you may want on your server.
   
   ![Homepage](./images/1000000000000E640000070A54C800BB.png)To get this (very basic) look, just download [services.yaml](./configs/services.yaml) and [widgets.yaml](./configs/widgets.yaml) and put them in your Homepage folder
 
+- [Gitea](https://about.gitea.com/): Your own private Github.
+1. ...
+
+2. Change the SSH port the your port, make sure the server domain specifies the IP Addres of your Pi and you can enable "update checker". Then click Install Gitea.![](images/2024-12-30-20-49-47-image.png)![](images/2024-12-30-20-52-07-image.png)
+
+3. Create an account (will have admin access).![](images/2024-12-30-20-59-19-image.png)
+
+4. You can use the Github desktop client for a UI client on your pc.
 - [PhotoPrism](https://www.photoprism.app/): basically your own Google
   photos (follow the steps from Portainer templates, run the script
   first via terminal/SSH).
