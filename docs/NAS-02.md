@@ -822,8 +822,10 @@ Some suggestions on what you may want on your server.
 19. If you want to adjust the retention time for
     monitoring history, you can do so in the settings. (default 180
     days.) ![Kuma18](./images/1000000000000E7F000005B6903A6018.png)
+- [ntfy]([GitHub - jokob-sk/NetAlertX: 🖧🔍 WIFI / LAN intruder detector. Scans for devices connected to your network and alerts you if new and unknown devices are found.](https://github.com/jokob-sk/NetAlertX/tree/main)): notification sender
+1. Go to Services, Compose, Files in OpenMediaVault and copy&paste this [netalertx.compose](./configs/netalertx.compose) file
 - [NetAlertX]([GitHub - jokob-sk/NetAlertX: 🖧🔍 WIFI / LAN intruder detector. Scans for devices connected to your network and alerts you if new and unknown devices are found.](https://github.com/jokob-sk/NetAlertX/tree/main)): WIFI / LAN intruder detector. Scans for devices connected to your network and alerts you if new and unknown devices are found
-1. Go to Serviices, Compose, Files in OpenMediaVault and copy&paste this [netalertx.compose](./configs/netalertx.compose) file (and change TZ to your own timezone and healthcheck to your IP Address).
+1. Go to Services, Compose, Files in OpenMediaVault and copy&paste this [netalertx.compose](./configs/netalertx.compose) file (and change TZ to your own timezone and healthcheck to your IP Address).
 
 2. Open http://IPADDRESS:17811/ and you should see one or 2 devices (router and/or the Pi).  ![](images/2025-01-05-00-22-46-image.png)
 
