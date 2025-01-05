@@ -867,6 +867,8 @@ Some suggestions on what you may want on your server.
    Then create the username, email and password.![](images/2024-12-30-23-18-56-image.png)
 
 5. Go to the archivebox webui page and click on the login button to the top right. And login with the info you created at step 4.![](images/2024-12-30-23-21-17-image.png)![](images/2024-12-30-23-25-23-image.png)
+- 
+
 - [PhotoPrism](https://www.photoprism.app/): basically your own Google
   photos (follow the steps from Portainer templates, run the script
   first via terminal/SSH).
@@ -889,6 +891,10 @@ Some suggestions on what you may want on your server.
 - [paperless-ngx]([GitHub - paperless-ngx/paperless-ngx: A community-supported supercharged version of paperless: scan, index and archive all your physical documents](https://github.com/paperless-ngx/paperless-ngx)): Document management, save physical or digital documents and organize them.
 
 - [stirling-pdf]([GitHub - Stirling-Tools/Stirling-PDF: #1 Locally hosted web application that allows you to perform various operations on PDF files](https://github.com/Stirling-Tools/Stirling-PDF)): PDF editor/tool.
+
+- [PairDrop]([GitHub - schlagmichdoch/PairDrop: PairDrop: Transfer Files Cross-Platform. No Setup, No Signup.](https://github.com/schlagmichdoch/PairDrop)): File transfer.
+
+- [Glance]([GitHub - glanceapp/glance: A self-hosted dashboard that puts all your feeds in one place](https://github.com/glanceapp/glance)): Dashboard for all feeds in one place (RSS, subreddits, bookmarks, Youtube, etc...)
 
 # Update
 

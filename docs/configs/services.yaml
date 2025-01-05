@@ -89,6 +89,13 @@
           refreshInterval: 5000 # optional - in milliseconds, defaults to 1000 or more, depending on the metric
           pointsLimit: 15 # optional, defaults to 15
 
+    - Scrutiny:
+        href: http://IPADDRESS:8081/web/dashboard
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/scrutiny.png
+        widget:
+          type: scrutiny
+          url: http://IPADDRESS:8081
+
     - Uptime Kuma:
         href: http://IPADDRESS:3001
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/uptime-kuma.png
