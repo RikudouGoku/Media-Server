@@ -822,6 +822,20 @@ Some suggestions on what you may want on your server.
 19. If you want to adjust the retention time for
     monitoring history, you can do so in the settings. (default 180
     days.) ![Kuma18](./images/1000000000000E7F000005B6903A6018.png)
+- [NetAlertX]([GitHub - jokob-sk/NetAlertX: 🖧🔍 WIFI / LAN intruder detector. Scans for devices connected to your network and alerts you if new and unknown devices are found.](https://github.com/jokob-sk/NetAlertX/tree/main)): WIFI / LAN intruder detector. Scans for devices connected to your network and alerts you if new and unknown devices are found
+1. Go to Serviices, Compose, Files in OpenMediaVault and copy&paste this [netalertx.compose](./configs/netalertx.compose) file (and change TZ to your own timezone and healthcheck to your IP Address).
+
+2. Open http://IPADDRESS:17811/ and you should see one or 2 devices (router and/or the Pi).  ![](images/2025-01-05-00-22-46-image.png)
+
+3. Click on the about and then system info page. Under network hardware increase the show entries so you can view it all at once then click on the "network mask" sort button to group them all at the top. Check the name for the ethernet port you are using, in my case it is "enP4p65s0" and also the WireGuard (VPN) interface (should be the same "wg0"), note their IP address.![](images/2025-01-05-00-28-37-image.png)
+
+4. Go to the settings page. Scroll down to the "Networks to scan, SCAN_SUBNETS" setting. You can remove the present entry.![](images/2025-01-05-00-33-44-image.png)
+
+5. Add your subnet, "subnet/24 --interface=enP4p65s0" and the wireguard subnet "subnet/24 --interface=wg0" then click on the green save button and wait for a few minutes (should be scanning every 5 minutes).![](images/2025-01-05-00-39-42-image.png)
+
+6. -Go to the Devices, My Devices page to check the added devices.![](images/2025-01-05-01-41-29-image.png)
+
+7. Go to the settings page, scroll down to the Email Publisher (SMTP) and check the picture below for what to adjust. Create the app password like you did [here](#GMAIL) and save, now you should get an email notification whenever a new device connects.![](images/2025-01-05-01-37-36-image.png)![](images/2025-01-05-01-43-27-image.png)
 - [Homepage](https://gethomepage.dev/): to organize and group all your
   Web UI links (can install from the compose tab in OpenMediaVault
   using "add from example", just change the first volume to "-
@@ -851,8 +865,6 @@ Some suggestions on what you may want on your server.
    Then create the username, email and password.![](images/2024-12-30-23-18-56-image.png)
 
 5. Go to the archivebox webui page and click on the login button to the top right. And login with the info you created at step 4.![](images/2024-12-30-23-21-17-image.png)![](images/2024-12-30-23-25-23-image.png)
-   
-    
 - [PhotoPrism](https://www.photoprism.app/): basically your own Google
   photos (follow the steps from Portainer templates, run the script
   first via terminal/SSH).

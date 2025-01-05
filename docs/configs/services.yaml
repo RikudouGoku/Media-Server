@@ -37,6 +37,14 @@
           password: PASSWORD
 
 - Network:
+    - NetAlertX:
+        href: http://IPADDRESS:17811/devices.php
+        icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/netalertx.png
+        widget:
+          type: netalertx
+          url: http://IPADDRESS:17811
+
+
     - Pi-hole:
         href: http://IPADDRESS/admin/
         icon: https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/pi-hole.png
