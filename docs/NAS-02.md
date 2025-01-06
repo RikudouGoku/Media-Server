@@ -867,8 +867,11 @@ Some suggestions on what you may want on your server.
    Then create the username, email and password.![](images/2024-12-30-23-18-56-image.png)
 
 5. Go to the archivebox webui page and click on the login button to the top right. And login with the info you created at step 4.![](images/2024-12-30-23-21-17-image.png)![](images/2024-12-30-23-25-23-image.png)
-- 
+- [Scrutiny]([GitHub - AnalogJ/scrutiny: Hard Drive S.M.A.R.T Monitoring, Historical Trends &amp; Real World Failure Thresholds](https://github.com/AnalogJ/scrutiny)): S.M.A.R.T Monitoring for HDD/SSDs.
+1. Go to Services, Compose, Files in OpenMediaVault and copy&paste this [scrutiny.compose](./configs/scrutiny.compose) file. 
 
+2. open "http://IPADDRESS:8081/web/dashboard", you may see this or not, but click on it to view what is triggering this error.![](images/2025-01-06-01-11-31-image.png)![](images/2025-01-06-01-13-26-image.png)
+   Check back on it from time to time to see if it does not increase, if not and the number is low, you should be fine otherwise consider swapping the drive (have a backup ready at least).
 - [PhotoPrism](https://www.photoprism.app/): basically your own Google
   photos (follow the steps from Portainer templates, run the script
   first via terminal/SSH).
@@ -1111,6 +1114,8 @@ An UPS can be a mandatory need, depending on your use of the Pi and/or the frequ
 # Troubleshooting
 
 - If the webui for OpenMediaVault just keeps loading but you can still use SSH and use the docker containers, try to reboot using the Terminal/SSH (sudo reboot) or clear the browser cache (CTRL+SHIFT+R) and it should be fixed. 
+- If after a reboot, you cannot access the Pi via SSH, webui nor any docker containers and the ethernet port LED is OFF but the power LED is blinking normally, try to connect it to a monitor and check what it says. Here are some pictures on when it happened to me:![](images/2025-01-05-23-58-01-image.png)![](images/2025-01-05-23-58-14-image.png)![](images/2025-01-05-23-58-23-image.png)![](images/2025-01-05-23-58-42-image.png)
+  Just type in `fsck.ext4 -f /dev/nvme0n1p1` and click "y" to all, then type in "reboot" at the end and it was fixed for me.
 
 # []{#anchor-16}NAS comparison
 
