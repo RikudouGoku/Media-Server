@@ -930,6 +930,13 @@ You can install [Watchtower](https://hub.docker.com/r/v2tec/watchtower) in a doc
 
 # Backup
 
+There are many different ways for you to backup your Pi. Personally I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https://www.westerndigital.com/en-il/products/internal-drives/wd-black-sn770-nvme-ssd?sku=WDS200T3X0E)) M.2 SSD and put it in an SSD enclosure from [Orico](https://www.aliexpress.com/item/4001297316228.html) (make sure you get an enclosure compatible with your SSD, NVME PCIE M.2 = M-Key enclosure ) with some [heat sinks](https://www.aliexpress.com/item/1005005713814718.html) as this is a simple and relatively affordable way to backup my modest amount of data on my Pi.
+
+1. Once the SSD has been installed inside the case with the heat sinks, connect it to the Pi (either by USB-C or USB-A, I used one of the USB-A 3.1 ports) then go to the storage, disks page in OpenMediaVault.![](images/2025-01-24-21-05-37-image.png)
+   Shows up as a /dev/sda device with RTL9210B-CG being the USB bridge used in the enclosure with the correct capacity of the SSD inside it (2 TB).
+
+2. Wipe the data, click on the correct drive you want to use as backup (MAKE SURE IT IS CORRECT OR IT WILL WIPE ALL YOUR EXISTING DATA!!!). Now wait, will take a while.![](images/2025-01-24-21-13-06-image.png)![](images/2025-01-24-21-14-13-image.png)
+
 backup...
 
 Initial clone via rsync, then edit the job for incremental backups (enable delete and schedule).
