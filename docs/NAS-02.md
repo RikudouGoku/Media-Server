@@ -935,7 +935,15 @@ There are many different ways for you to backup your Pi. Personally I bought an 
 1. Once the SSD has been installed inside the case with the heat sinks, connect it to the Pi (either by USB-C or USB-A, I used one of the USB-A 3.1 ports) then go to the storage, disks page in OpenMediaVault.![](images/2025-01-24-21-05-37-image.png)
    Shows up as a /dev/sda device with RTL9210B-CG being the USB bridge used in the enclosure with the correct capacity of the SSD inside it (2 TB).
 
-2. Wipe the data, click on the correct drive you want to use as backup (MAKE SURE IT IS CORRECT OR IT WILL WIPE ALL YOUR EXISTING DATA!!!). Now wait, will take a while.![](images/2025-01-24-21-13-06-image.png)![](images/2025-01-24-21-14-13-image.png)
+2. Wipe the data, click on the correct drive you want to use as backup (MAKE SURE IT IS CORRECT OR IT WILL WIPE ALL YOUR EXISTING DATA!!!). ![](images/2025-01-24-21-13-06-image.png)
+   ![](images/2025-01-25-01-48-17-image.png)
+
+3. After the wipe go to the file systems page. Click on the create button and pick EXT4 then save.![](images/2025-01-25-01-53-44-image.png)![](images/2025-01-25-01-55-59-image.png)![](images/2025-01-25-02-18-24-image.png)
+
+4. After you closed the file system creation window, you should see this.![](images/2025-01-25-02-19-43-image.png)
+   The newly created file system should be in the list, select it and save. (You can add some tags if you want such as Backup or/and change the usage warning threshold.)
+
+5. Should now be mounted, if get an error you can try to reboot the Pi using the reboot button at the top right on the OpenMediaVault webui.![](images/2025-01-25-02-33-39-image.png)
 
 backup...
 
