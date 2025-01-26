@@ -943,7 +943,11 @@ There are many different ways for you to backup your Pi. Personally I bought an 
 4. After you closed the file system creation window, you should see this.![](images/2025-01-25-02-19-43-image.png)
    The newly created file system should be in the list, select it and save. (You can add some tags if you want such as Backup or/and change the usage warning threshold.)
 
-5. Should now be mounted, if get an error you can try to reboot the Pi using the reboot button at the top right on the OpenMediaVault webui.![](images/2025-01-25-02-33-39-image.png)
+5. Should now be mounted, if get an error you can try to reboot the Pi using the reboot button at the top right on the OpenMediaVault webui. Click on the column settings and enable "identify as" and "mount point".![](images/2025-01-25-02-33-39-image.png)![](images/2025-01-25-23-03-03-image.png)
+
+6. Go to system, scheduled tasks page. Click on the plus button.![](images/2025-01-25-23-04-24-image.png)
+
+7. use your own UUID for the backup drive `sudo rsync -av --progress --exclude=/proc / /srv/dev-disk-by-uuid-340d805b-2648-4545-b7d7-060e0616d73c/ > rsync_output.log 2>&1` .The UUID on the right of the code **340d805b-2648-4545-b7d7-060e0616d73c** is the backup/destination drive change that to yours (the "/" is the source (root) drive). Make sure to use the correct one. Although this code will not delete anything so it is not the end of the world.  Set it to execute on "certain date" I have it running once every sunday at 05:00 AM, ![](images/2025-01-26-01-15-01-image.png)
 
 backup...
 
