@@ -949,11 +949,23 @@ There are many different ways for you to backup your Pi. Personally I bought an 
 
 7. Go to the storage, disk page and check the device path for the source and backup drive in my case the source path is `/dev/nvme0n1` (1TB drive) and the backup drive is `/dev/sda` (2TB drive).![](images/2025-01-27-19-49-33-image.png) 
 
-8. Then use ssh/terminal and type in `sudo dd if=/dev/nvme0n1 of=/dev/sda bs=4M status=progress` (make sure to use your own device path if it is different and **MAKE SURE IT IS CORRECT BECAUSE THIS WILL WIPE THE DESTINATION DRIVE!!!**) and WAIT DO NOT INTERRUPT IT. (For reference my speed was around 90MB/s)
+8. Then use ssh/terminal and type in `sudo dd if=/dev/nvme0n1 of=/dev/sda bs=4M status=progress` (make sure to use your own device path if it is different and **MAKE SURE IT IS CORRECT BECAUSE THIS WILL WIPE THE DESTINATION DRIVE!!!**) and WAIT DO NOT INTERRUPT IT. (For reference my speed was around 100MB/s)![](images/2025-01-27-22-36-18-image.png)
 
-9. Go to system, scheduled tasks page. Click on the plus button.![](images/2025-01-25-23-04-24-image.png)
+9. Then type `sudo parted /dev/sda resizepart 1 100%` and then `sudo e2fsck -f /dev/sda1` enter yes if prompted to fix free block count.![](images/2025-01-27-22-48-27-image.png)
 
-10. use your own UUID for the backup drive `sudo rsync -av --progress --exclude=/proc / /srv/dev-disk-by-uuid-340d805b-2648-4545-b7d7-060e0616d73c/ > rsync_output.log 2>&1` .The UUID on the right of the code **340d805b-2648-4545-b7d7-060e0616d73c** is the backup/destination drive change that to yours (the "/" is the source (root) drive). Make sure to use the correct one. Although this code will not delete anything so it is not the end of the world.  Set it to execute on "certain date" I have it running once every sunday at 05:00 AM, ![](images/2025-01-26-01-15-01-image.png)
+10. Then type `sudo resize2fs /dev/sda1` ![](images/2025-01-27-22-52-05-image.png)
+
+11. Then type `sudo umount /dev/sda1`, then `sudo e2fsck -f /dev/sda1` and then `sudo tune2fs -U random /dev/sda1`.
+
+12. Then go to storage, file systems page and click on the mount an existing file system option and select the /dev/sda1 file system and save. Should now have a fully identical drive with a different UUID (to avoid conflicts with the main drive).![](images/2025-01-27-23-36-30-image.png)![](images/2025-01-27-23-36-54-image.png)![](images/2025-01-27-23-40-04-image.png)
+
+13. Go to system, scheduled tasks page. Click on the plus button.![](images/2025-01-25-23-04-24-image.png)
+
+14. use your own UUID for the backup drive `sudo rsync -av --exclude=/proc --exclude=/sys --exclude=/dev --exclude=/run --exclude=/tmp --exclude=/mnt --exclude=/media --exclude=/lost+found / /srv/dev-disk-by-uuid-9e24b81d-c6d2-4680-8225-185378b427a0/ > /srv/dev-disk-by-uuid-9e24b81d-c6d2-4680-8225-185378b427a0/rsync_output.log 2>&1` .The UUID on the right of the code **9e24b81d-c6d2-4680-8225-185378b427a0** is the backup/destination drive change that to yours (the "/" is the source (root) drive). Make sure to use the correct one. Although this code will not delete anything so it is not the end of the world.  Set it to execute on "certain date" I have it running once every Monday, Wednesday and Friday at 05:00 AM. This will copy over any new and/or changed files from the last time but will not delete any files on the destination (backup) drive.![](images/2025-01-28-00-20-13-image.png)
+
+15. To make sure that the command at step 14 works without issue you can do a dry run with it in the terminal/ssh using `sudo rsync -av --dry-run --exclude=/proc --exclude=/sys --exclude=/dev --exclude=/run --exclude=/tmp --exclude=/mnt --exclude=/media --exclude=/lost+found / /srv/dev-disk-by-uuid-9e24b81d-c6d2-4680-8225-185378b427a0/` in my case it gave this, it only sent around 71 MB of data, except since this is dry run nothing was actually sent/received. This confirms that step 14 will run successfully.![](images/2025-01-28-00-23-15-image.png)
+
+16. Then make another task `sudo rsync -av --delete \     --exclude=/proc \     --exclude=/sys \     --exclude=/dev \     --exclude=/run \     --exclude=/tmp \     --exclude=/mnt \     --exclude=/media \     --exclude=/lost+found \     / \     /srv/dev-disk-by-uuid-9e24b81d-c6d2-4680-8225-185378b427a0/ \     > /srv/dev-disk-by-uuid-9e24b81d-c6d2-4680-8225-185378b427a0/rsync_output.log 2>&1`. This will delete the files that is not on the source folder on the backup folder, thus a mirror. (I recommend having this disabled until you the command at step 14 has been run a few times without issues first.)![](images/2025-01-28-00-26-17-image.png)
 
 backup...
 
