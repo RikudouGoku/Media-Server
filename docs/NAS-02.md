@@ -928,9 +928,9 @@ You can install [Watchtower](https://hub.docker.com/r/v2tec/watchtower) in a doc
 
 4. Scanned and there were no updates so it did not send any notification.![](images/2024-12-30-20-33-54-image.png)
 
-# Backup
+# Drive failure protection
 
-There are many different ways for you to backup your Pi. Personally I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https://www.westerndigital.com/en-il/products/internal-drives/wd-black-sn770-nvme-ssd?sku=WDS200T3X0E)) M.2 SSD and put it in an SSD enclosure from [Orico](https://www.aliexpress.com/item/4001297316228.html) (make sure you get an enclosure compatible with your SSD, NVME PCIE M.2 = M-Key enclosure ) with some [heat sinks](https://www.aliexpress.com/item/1005005713814718.html) (around 26C with this setup while idle) as this is a simple and relatively affordable way to backup my modest amount of data on my Pi.
+I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https://www.westerndigital.com/en-il/products/internal-drives/wd-black-sn770-nvme-ssd?sku=WDS200T3X0E)) M.2 SSD and put it in an SSD enclosure from [Orico](https://www.aliexpress.com/item/4001297316228.html) (make sure you get an enclosure compatible with your SSD, NVME PCIE M.2 = M-Key enclosure ) with some [heat sinks](https://www.aliexpress.com/item/1005005713814718.html) (around 26C with this setup while idle) as I wanted a way to get some drive failure protection. I am using a mix of openmediavault-backup plugin (for OS backup) + snapraid (for data parity) + dd clone (full drive backup on separate partition on 2 TB drive).
 
 1. Once the SSD has been installed inside the case with the heat sinks, connect it to the Pi (either by USB-C or USB-A, I used one of the USB-A 3.1 ports) then go to the storage, disks page in OpenMediaVault.![](images/2025-01-24-21-05-37-image.png)
    Shows up as a /dev/sda device with RTL9210B-CG being the USB bridge used in the enclosure with the correct capacity of the SSD inside it (2 TB).
