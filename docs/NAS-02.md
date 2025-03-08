@@ -930,7 +930,7 @@ You can install [Watchtower](https://hub.docker.com/r/v2tec/watchtower) in a doc
 
 # Drive failure protection
 
-I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https://www.westerndigital.com/en-il/products/internal-drives/wd-black-sn770-nvme-ssd?sku=WDS200T3X0E)) M.2 SSD and put it in an SSD enclosure from [Orico](https://www.aliexpress.com/item/4001297316228.html) (make sure you get an enclosure compatible with your SSD, NVME PCIE M.2 = M-Key enclosure ) with some [heat sinks](https://www.aliexpress.com/item/1005005713814718.html) (around 26C with this setup while idle) as I wanted a way to get some drive failure protection. I am using a mix of openmediavault-backup plugin (for OS backup) + snapraid (for data parity) + dd clone (full drive backup on separate partition on 2 TB drive).
+I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https://www.westerndigital.com/en-il/products/internal-drives/wd-black-sn770-nvme-ssd?sku=WDS200T3X0E)) M.2 SSD and put it in an SSD enclosure from [Orico](https://www.aliexpress.com/item/4001297316228.html) (make sure you get an enclosure compatible with your SSD, NVME PCIE M.2 = M-Key enclosure ) with some [heat sinks](https://www.aliexpress.com/item/1005005713814718.html) (around 26C with this setup while idle) as I wanted a way to get some drive failure protection. I am using a mix of openmediavault-backup plugin (for OMV configuration) + snapraid (protect large media files against drive failure) + rsnapshot (for system files and critical data).
 
 1. Once the SSD has been installed inside the case with the heat sinks, connect it to the Pi (either by USB-C or USB-A, I used one of the USB-A 3.1 ports) then go to the storage, disks page in OpenMediaVault.![](images/2025-01-24-21-05-37-image.png)
    Shows up as a /dev/sda device with RTL9210B-CG being the USB bridge used in the enclosure with the correct capacity of the SSD inside it (2 TB).
@@ -943,52 +943,52 @@ I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https
 4. After you closed the file system creation window, you should see this.![](images/2025-01-25-02-19-43-image.png)
    The newly created file system should be in the list, select it and save. (You can add some tags if you want such as Backup or/and change the usage warning threshold.)
 
-5. Should now be mounted. Click on the column settings and enable "identify as" and "mount point".![](images/2025-01-25-02-33-39-image.png)![](images/2025-01-27-19-44-54-image.png)
+5. Should now be mounted. Click on the column settings and enable "identify as" and "mount point".![](images/2025-01-25-02-33-39-image.png)![](images/2025-03-05-21-15-39-image.png)
 
-6. Click on the unmount button![](images/2025-01-27-19-44-11-image.png)![](images/2025-01-27-19-45-25-image.png)
+6. Go to Storage, Shared folders and click on the create button. Create 3 folders. 
+   
+   - `snapraid` - For parity files
+   - `rsnapshot` - For system and data backups
+   - `omv-backups` - For OMV configuration backups![](images/2025-03-05-21-17-02-image.png)![](images/2025-03-05-21-19-30-image.png)![](images/2025-03-07-00-43-17-image.png)
+   
+   ## SnapRAID installation
+   
+   Then go to System, Plugins and search for "snapraid" and install it.![](images/2025-03-07-00-47-07-image.png)![](images/2025-03-07-00-49-14-image.png)
 
-7. Go to the storage, disk page and check the device path for the source and backup drive in my case the source path is `/dev/nvme0n1` (1TB drive) and the backup drive is `/dev/sda` (2TB drive).![](images/2025-01-27-19-49-33-image.png) 
+7. Then the page should be refreshed and SnapRAID tab is under Services. Go to Services, SnapRAID, Arrays and click on the add button and give the array a name.![](images/2025-03-07-01-15-15-image.png)![](images/2025-03-07-01-15-49-image.png)![](images/2025-03-07-01-16-33-image.png)
 
-8. Then use ssh/terminal and type in `sudo dd if=/dev/nvme0n1 of=/dev/sda bs=4M status=progress` (make sure to use your own device path if it is different and **MAKE SURE IT IS CORRECT BECAUSE THIS WILL WIPE THE DESTINATION DRIVE!!!**) and WAIT DO NOT INTERRUPT IT. (For reference my speed was around 100MB/s)![](images/2025-01-27-22-36-18-image.png)
+8. Then go to Services, SnapRAID, Drives and click on the add button. Select the array that was created in the previous step, your backup drive and then select parity and content and give it a name.![](images/2025-03-07-00-51-31-image.png)![](images/2025-03-07-01-36-38-image.png)
 
-9. Then type `sudo parted /dev/sda resizepart 1 100%` and then `sudo e2fsck -f /dev/sda1` enter yes if prompted to fix free block count.![](images/2025-01-27-22-48-27-image.png)
+9. Do the same but with your main drive and as a content&data drive.![](images/2025-03-07-01-19-35-image.png)
 
-10. Then type `sudo resize2fs /dev/sda1` ![](images/2025-01-27-22-52-05-image.png)
+10. Then go to the Rules section and click add. I have a shared folder "/Music" with my music so I use that with inclusion and then save. (needs trailing slash afterwards to include the content as well as the folder). Do the same but with exclusion for all other files "*". (make sure to add the inclusions you want first.)![](images/2025-03-07-01-28-11-image.png)![](images/2025-03-08-03-13-29-image.png)
 
-11. Then type `sudo umount /dev/sda1`, then `sudo e2fsck -f /dev/sda1` and then `sudo tune2fs -U random /dev/sda1`.
+11. Go to the settings page and change scrub frequency to every day (1) and to 5%. full scrub should be done every 20 days. ![](images/2025-03-07-01-52-03-image.png)
 
-12. Then go to storage, file systems page and click on the mount an existing file system option and select the /dev/sda1 file system and save. Should now have a fully identical drive with a different UUID (to avoid conflicts with the main drive).![](images/2025-01-27-23-36-30-image.png)![](images/2025-01-27-23-36-54-image.png)![](images/2025-01-27-23-40-04-image.png)
+12. Go to system, scheduled tasks and edit the task to every day and enable it. (change time if needed but this runs every day at 02:30 AM.)![](images/2025-03-07-01-56-46-image.png)![](images/2025-03-07-01-58-02-image.png)
 
-13. Go to system, scheduled tasks page. Click on the plus button.![](images/2025-01-25-23-04-24-image.png)
+13. Go to System, Services, Snapraid, Arrays and click on the array then tools and Sync. Took about 3 hours for my 570-ish GB music folder. ![](images/2025-03-08-19-38-48-image.png)![](images/2025-03-08-03-12-52-image.png)
 
-14. use your own UUID for the backup drive `sudo rsync -av --exclude=/proc --exclude=/sys --exclude=/dev --exclude=/run --exclude=/tmp --exclude=/mnt --exclude=/media --exclude=/lost+found / /srv/dev-disk-by-uuid-9e24b81d-c6d2-4680-8225-185378b427a0/ > /srv/dev-disk-by-uuid-9e24b81d-c6d2-4680-8225-185378b427a0/rsync_output.log 2>&1` .The UUID on the right of the code **9e24b81d-c6d2-4680-8225-185378b427a0** is the backup/destination drive change that to yours (the "/" is the source (root) drive). Make sure to use the correct one. Although this code will not delete anything so it is not the end of the world.  Set it to execute on "certain date" I have it running once every Monday, Wednesday and Friday at 05:00 AM. This will copy over any new and/or changed files from the last time but will not delete any files on the destination (backup) drive.![](images/2025-01-28-00-20-13-image.png)
+14. Then go to system, scheduled tasks and click on the create button. Enter this in the command section `for conf in /etc/snapraid/omv-snapraid-*.conf; do /usr/bin/snapraid -c ${conf} sync; done`  and then you can set it to your own preferred scheduled, if your data does not change often, you can set it to once a week or longer in between. I personally set this to run every other day. This is the period in between syncs for your media files (or whatever files/folder you included with snapraid). After you created the task, you may run it to make sure it works. Since I have no new files added since the last sync (from step 14) It is not doing anything.![](images/2025-03-08-19-47-54-image.png)![](images/2025-03-08-19-52-00-image.png)![](images/2025-03-08-19-51-39-image.png)
+    
+    # []{#anchor-14}Improve Security (UNFINISHED)
 
-15. To make sure that the command at step 14 works without issue you can do a dry run with it in the terminal/ssh using `sudo rsync -av --dry-run --exclude=/proc --exclude=/sys --exclude=/dev --exclude=/run --exclude=/tmp --exclude=/mnt --exclude=/media --exclude=/lost+found / /srv/dev-disk-by-uuid-9e24b81d-c6d2-4680-8225-185378b427a0/` in my case it gave this, it only sent around 71 MB of data, except since this is dry run nothing was actually sent/received. This confirms that step 14 will run successfully.![](images/2025-01-28-00-23-15-image.png)
+15. Type in "cat /etc/wireguard/wg0.conf" in the terminal, check what
+    address it gives you, using this "10.25.45.1/24" as the example
+    here. ![Security01](./images/10000000000004F2000001C56B0EC65D.png)
 
-16. Then make another task `sudo rsync -av --delete \     --exclude=/proc \     --exclude=/sys \     --exclude=/dev \     --exclude=/run \     --exclude=/tmp \     --exclude=/mnt \     --exclude=/media \     --exclude=/lost+found \     / \     /srv/dev-disk-by-uuid-9e24b81d-c6d2-4680-8225-185378b427a0/ \     > /srv/dev-disk-by-uuid-9e24b81d-c6d2-4680-8225-185378b427a0/rsync_output.log 2>&1`. This will delete the files that is not on the source folder on the backup folder, thus a mirror. (I recommend having this disabled until you the command at step 14 has been run a few times without issues first.)![](images/2025-01-28-00-26-17-image.png)
+16. Type in "nano /etc/ssh/sshd_config" and scroll
+    down to the "#ListenAddress". ![Security02](Pictures/1000000000000616000002FF46BE8B67.png)
 
-backup...
+17. Remove the "#" sign from both "listenAddress", change the first
+    value to the IP address of your LAN range, for example if your PC
+    and Pi have an IP address of 192.168.0.X (X being like 1 on your PC
+    and 5 on the Pi or whatever number), then you need to input
+    "192.168.0.0/24" in the first one.
 
-Initial clone via rsync, then edit the job for incremental backups (enable delete and schedule).
+18. \-
 
-# []{#anchor-14}Improve Security (UNFINISHED)
-
-1. Type in "cat /etc/wireguard/wg0.conf" in the terminal, check what
-   address it gives you, using this "10.25.45.1/24" as the example
-   here. ![Security01](./images/10000000000004F2000001C56B0EC65D.png)
-
-2. Type in "nano /etc/ssh/sshd_config" and scroll
-   down to the "#ListenAddress". ![Security02](Pictures/1000000000000616000002FF46BE8B67.png)
-
-3. Remove the "#" sign from both "listenAddress", change the first
-   value to the IP address of your LAN range, for example if your PC
-   and Pi have an IP address of 192.168.0.X (X being like 1 on your PC
-   and 5 on the Pi or whatever number), then you need to input
-   "192.168.0.0/24" in the first one.
-
-4. \-
-
-5. 
+19. 
 
 (disable root account and enable SSH access to other users by adding
 "\_ssh" group into them.)
