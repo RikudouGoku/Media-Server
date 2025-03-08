@@ -16,7 +16,7 @@
 - [Update](#update)
   - [OS update](#os-update)
   - [Docker update](#docker-update)
-- [Drive failure protection](# Drive failure protection)
+- [Drive failure protection](#drive-failure-protection)
 - - [SnapRAID installation](#snapraid-installation)
 
 ## Media server part 2, Orange Pi 5 Plus
