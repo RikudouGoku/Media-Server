@@ -27,6 +27,7 @@
 - [Troubleshooting](#troubleshooting)
 - [NAS comparison](#nas-comparison)
 - [Self-Hosted Streaming vs. Commercial Services: Cost Breakdown](#self-hosted-streaming-vs-commercial-services-cost-breakdown)
+- [Conclusion](#conclusion)
 
 ## Media server part 2, Orange Pi 5 Plus
 
@@ -1075,7 +1076,7 @@ storage cost for any of them.
 
 Note: the Pi 5 Plus setup is with the 4GB RAM option with the case, sd
 card, heatsink, fan, UPS, batteries, charger along with a 500GB NVME
-SSD. 512GB for storage was picked as most of you have over 10 000 tracks
+SSD. 512GB for storage was picked as most of you (Audiophiles that voted in my poll) have over 10 000 tracks
 which ranges from 84GB if they are 320kbps up to around 350GB if with
 FLAC so this will be more than enough for that and to be able to have
 your system files on it as well. 4GB RAM was chosen as that is enough to
@@ -1089,15 +1090,6 @@ year or two until you have recouped the initial upfront cost and you
 also know what files you are using as some streaming services may have
 bad mastered tracks (even if they are lossless).
 
-# []{#anchor-18}Conclusion (unfinished):
+# Conclusion
 
-\- Overview of the complete system you\'ve built
-
-\- Key technologies and services implemented
-
-\- Performance and cost benefits compared to commercial solutions
-
-\- Potential future enhancements or areas to explore
-
-\- Encouragement for readers to customize and adapt the setup to their
-needs
+If you want a cheap, flexible and more future proof method of self hosting your own NAS/Server going with an Orange Pi 5 Plus (or any other comparable SBC) is the better option in my opinion than a prebuilt NAS such a Synology or Terra Master NAS as they are much more limited in what you can or cannot do. However, if you want an easier and faster way to setup your own NAS a prebuilt NAS will be more fitting. 
