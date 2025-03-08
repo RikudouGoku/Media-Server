@@ -16,7 +16,8 @@
 - [Update](#update)
   - [OS update](#os-update)
   - [Docker update](#docker-update)
-- [Backup](#backup)
+- [Drive failure protection](# Drive failure protection)
+- - [SnapRAID installation](#snapraid-installation)
 
 ## Media server part 2, Orange Pi 5 Plus
 
@@ -953,42 +954,42 @@ I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https
    
    ## SnapRAID installation
    
-   Then go to System, Plugins and search for "snapraid" and install it.![](images/2025-03-07-00-47-07-image.png)![](images/2025-03-07-00-49-14-image.png)
+   1. Then go to System, Plugins and search for "snapraid" and install it.![](images/2025-03-07-00-47-07-image.png)![](images/2025-03-07-00-49-14-image.png)
+   
+   2. Then the page should be refreshed and SnapRAID tab is under Services. Go to Services, SnapRAID, Arrays and click on the add button and give the array a name.![](images/2025-03-07-01-15-15-image.png)![](images/2025-03-07-01-15-49-image.png)![](images/2025-03-07-01-16-33-image.png)
+   
+   3. Then go to Services, SnapRAID, Drives and click on the add button. Select the array that was created in the previous step, your backup drive and then select parity and content and give it a name.![](images/2025-03-07-00-51-31-image.png)![](images/2025-03-07-01-36-38-image.png)
+   
+   4. Do the same but with your main drive and as a content&data drive.![](images/2025-03-07-01-19-35-image.png)
+   
+   5. Then go to the Rules section and click add. I have a shared folder "/Music" with my music so I use that with inclusion and then save. (needs trailing slash afterwards to include the content as well as the folder). Do the same but with exclusion for all other files "*". (make sure to add the inclusions you want first.)![](images/2025-03-07-01-28-11-image.png)![](images/2025-03-08-03-13-29-image.png)
+   
+   6. Go to the settings page and change scrub frequency to every day (1) and to 5%. full scrub should be done every 20 days. ![](images/2025-03-07-01-52-03-image.png)
+   
+   7. Go to system, scheduled tasks and edit the task to every day and enable it. (change time if needed but this runs every day at 02:30 AM.)![](images/2025-03-07-01-56-46-image.png)![](images/2025-03-07-01-58-02-image.png)
+   
+   8. Go to System, Services, Snapraid, Arrays and click on the array then tools and Sync. Took about 3 hours for my 570-ish GB music folder. ![](images/2025-03-08-19-38-48-image.png)![](images/2025-03-08-03-12-52-image.png)
+   
+   9. Then go to system, scheduled tasks and click on the create button. Enter this in the command section `for conf in /etc/snapraid/omv-snapraid-*.conf; do /usr/bin/snapraid -c ${conf} sync; done`  and then you can set it to your own preferred scheduled, if your data does not change often, you can set it to once a week or longer in between. I personally set this to run every other day. This is the period in between syncs for your media files (or whatever files/folder you included with snapraid). After you created the task, you may run it to make sure it works. Since I have no new files added since the last sync (from step 8) It is not doing anything.![](images/2025-03-08-19-47-54-image.png)![](images/2025-03-08-19-52-00-image.png)![](images/2025-03-08-19-51-39-image.png)
+   
+   # []{#anchor-14}Improve Security (UNFINISHED)
 
-7. Then the page should be refreshed and SnapRAID tab is under Services. Go to Services, SnapRAID, Arrays and click on the add button and give the array a name.![](images/2025-03-07-01-15-15-image.png)![](images/2025-03-07-01-15-49-image.png)![](images/2025-03-07-01-16-33-image.png)
+7. Type in "cat /etc/wireguard/wg0.conf" in the terminal, check what
+   address it gives you, using this "10.25.45.1/24" as the example
+   here. ![Security01](./images/10000000000004F2000001C56B0EC65D.png)
 
-8. Then go to Services, SnapRAID, Drives and click on the add button. Select the array that was created in the previous step, your backup drive and then select parity and content and give it a name.![](images/2025-03-07-00-51-31-image.png)![](images/2025-03-07-01-36-38-image.png)
+8. Type in "nano /etc/ssh/sshd_config" and scroll
+   down to the "#ListenAddress". ![Security02](Pictures/1000000000000616000002FF46BE8B67.png)
 
-9. Do the same but with your main drive and as a content&data drive.![](images/2025-03-07-01-19-35-image.png)
+9. Remove the "#" sign from both "listenAddress", change the first
+   value to the IP address of your LAN range, for example if your PC
+   and Pi have an IP address of 192.168.0.X (X being like 1 on your PC
+   and 5 on the Pi or whatever number), then you need to input
+   "192.168.0.0/24" in the first one.
 
-10. Then go to the Rules section and click add. I have a shared folder "/Music" with my music so I use that with inclusion and then save. (needs trailing slash afterwards to include the content as well as the folder). Do the same but with exclusion for all other files "*". (make sure to add the inclusions you want first.)![](images/2025-03-07-01-28-11-image.png)![](images/2025-03-08-03-13-29-image.png)
+10. \-
 
-11. Go to the settings page and change scrub frequency to every day (1) and to 5%. full scrub should be done every 20 days. ![](images/2025-03-07-01-52-03-image.png)
-
-12. Go to system, scheduled tasks and edit the task to every day and enable it. (change time if needed but this runs every day at 02:30 AM.)![](images/2025-03-07-01-56-46-image.png)![](images/2025-03-07-01-58-02-image.png)
-
-13. Go to System, Services, Snapraid, Arrays and click on the array then tools and Sync. Took about 3 hours for my 570-ish GB music folder. ![](images/2025-03-08-19-38-48-image.png)![](images/2025-03-08-03-12-52-image.png)
-
-14. Then go to system, scheduled tasks and click on the create button. Enter this in the command section `for conf in /etc/snapraid/omv-snapraid-*.conf; do /usr/bin/snapraid -c ${conf} sync; done`  and then you can set it to your own preferred scheduled, if your data does not change often, you can set it to once a week or longer in between. I personally set this to run every other day. This is the period in between syncs for your media files (or whatever files/folder you included with snapraid). After you created the task, you may run it to make sure it works. Since I have no new files added since the last sync (from step 14) It is not doing anything.![](images/2025-03-08-19-47-54-image.png)![](images/2025-03-08-19-52-00-image.png)![](images/2025-03-08-19-51-39-image.png)
-    
-    # []{#anchor-14}Improve Security (UNFINISHED)
-
-15. Type in "cat /etc/wireguard/wg0.conf" in the terminal, check what
-    address it gives you, using this "10.25.45.1/24" as the example
-    here. ![Security01](./images/10000000000004F2000001C56B0EC65D.png)
-
-16. Type in "nano /etc/ssh/sshd_config" and scroll
-    down to the "#ListenAddress". ![Security02](Pictures/1000000000000616000002FF46BE8B67.png)
-
-17. Remove the "#" sign from both "listenAddress", change the first
-    value to the IP address of your LAN range, for example if your PC
-    and Pi have an IP address of 192.168.0.X (X being like 1 on your PC
-    and 5 on the Pi or whatever number), then you need to input
-    "192.168.0.0/24" in the first one.
-
-18. \-
-
-19. 
+11. 
 
 (disable root account and enable SSH access to other users by adding
 "\_ssh" group into them.)
