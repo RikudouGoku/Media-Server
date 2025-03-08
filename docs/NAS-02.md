@@ -26,7 +26,7 @@
 - [UPS](#ups)
 - [Troubleshooting](#troubleshooting)
 - [NAS comparison](#nas-comparison)
-- [Self-Hosted Streaming vs. Commercial Services: Cost Breakdown](#self-hosted-streaming-vs.-commercial-services:-cost-breakdown)
+- [Self-Hosted Streaming vs. Commercial Services: Cost Breakdown](#self-hosted-streaming-vs-commercial-services-cost-breakdown)
 
 ## Media server part 2, Orange Pi 5 Plus
 
