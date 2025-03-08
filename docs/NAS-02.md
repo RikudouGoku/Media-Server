@@ -26,6 +26,7 @@
 - [UPS](#ups)
 - [Troubleshooting](#troubleshooting)
 - [NAS comparison](#nas-comparison)
+- [Self-Hosted Streaming vs. Commercial Services: Cost Breakdown](#self-hosted-streaming-vs.-commercial-services:-cost-breakdown)
 
 ## Media server part 2, Orange Pi 5 Plus
 
@@ -1062,7 +1063,7 @@ Note: the Pi 5 Plus setup is with the 16GB RAM option with the case, sd
 card, heatsink, fan, UPS, batteries and charger. Does not include
 storage cost for any of them.
 
-# []{#anchor-17}Streaming self hosted compared to services
+# Self-Hosted Streaming vs. Commercial Services: Cost Breakdown
 
 | **Service**                | **Upfront Cost (USD)** | **Monthly Cost (USD)** | **Yearly Cost (USD)** | **Time to Match Self-Hosted Cost (Months)** |
 | -------------------------- | ---------------------- | ---------------------- | --------------------- | ------------------------------------------- |
