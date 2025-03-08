@@ -17,7 +17,8 @@
   - [OS update](#os-update)
   - [Docker update](#docker-update)
 - [Drive failure protection](#drive-failure-protection)
-- - [SnapRAID installation](#snapraid-installation)
+- - [SnapRAID](#snapraid)
+  - [OMV-backup](#omv-backup)
 
 ## Media server part 2, Orange Pi 5 Plus
 
@@ -946,12 +947,9 @@ I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https
 
 5. Should now be mounted. Click on the column settings and enable "identify as" and "mount point".![](images/2025-01-25-02-33-39-image.png)![](images/2025-03-05-21-15-39-image.png)
 
-6. Go to Storage, Shared folders and click on the create button. Create 2 folders. 
+6. Go to Storage, Shared folders and click on the create button. Create a folder named omv-backups. ![](images/2025-03-05-21-17-02-image.png)![](images/2025-03-08-23-01-12-image.png)![](images/2025-03-08-23-02-29-image.png)
    
-   - `rsnapshot` - For system and data backups
-   - `omv-backups` - For OMV configuration backups![](images/2025-03-05-21-17-02-image.png)![](images/2025-03-08-20-06-02-image.png)![](images/2025-03-08-20-06-21-image.png)
-   
-   ## SnapRAID installation
+   ## SnapRAID
    
    1. Go to System, Plugins and search for "snapraid" and install it.![](images/2025-03-07-00-47-07-image.png)![](images/2025-03-07-00-49-14-image.png)
    
@@ -961,7 +959,7 @@ I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https
    
    4. Do the same but with your main drive and as a content&data drive.![](images/2025-03-07-01-19-35-image.png)
    
-   5. Then go to the Rules section and click add. I have a shared folder "/Music" with my music so I use that with inclusion and then save. (needs trailing slash afterwards to include the content as well as the folder). Do the same but with exclusion for all other files "*". (make sure to add the inclusions you want first.)![](images/2025-03-07-01-28-11-image.png)![](images/2025-03-08-03-13-29-image.png)
+   5. Then go to the Rules section and click add. I have a shared folder "/Music" with my music so I use that with inclusion and then save. (needs trailing slash afterwards to include the content as well as the folder). Do the same but with exclusion for all other files "*". (make sure to add the inclusions you want first.) (note that if you want to include more folders, you need to remove the exclusion first and add it afterwards so it ends up at the bottom of the config file.)![](images/2025-03-07-01-28-11-image.png)![](images/2025-03-08-03-13-29-image.png)
    
    6. Go to the settings page and change scrub frequency to every day (1) and to 5%. full scrub should be done every 20 days. ![](images/2025-03-07-01-52-03-image.png)
    
@@ -970,6 +968,16 @@ I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https
    8. Go to System, Services, Snapraid, Arrays and click on the array then tools and Sync. Took about 3 hours for my 570-ish GB music folder. ![](images/2025-03-08-19-38-48-image.png)![](images/2025-03-08-03-12-52-image.png)
    
    9. Then go to system, scheduled tasks and click on the create button. Enter this in the command section `for conf in /etc/snapraid/omv-snapraid-*.conf; do /usr/bin/snapraid -c ${conf} sync; done`  and then you can set it to your own preferred scheduled, if your data does not change often, you can set it to once a week or longer in between. I personally set this to run every other day. This is the period in between syncs for your media files (or whatever files/folder you included with snapraid). After you created the task, you may run it to make sure it works. Since I have no new files added since the last sync (from step 8) It is not doing anything.![](images/2025-03-08-19-47-54-image.png)![](images/2025-03-08-19-52-00-image.png)![](images/2025-03-08-19-51-39-image.png)
+   
+   ## OMV-backup
+   
+   1. Go to System, Plugins and search for backup and install openmediavault-backup.![](images/2025-03-08-20-27-03-image.png)
+   
+   2. Go to System, Backup, settings. Use fsarchiver as the method, omv-backups as backup destination, change keep (retention time) if needed (I have set it to 14 days) and under extra options exclude the shared folder Music (which has my music files but its protected by snapRAID so not needed here). And some other folders that are not needed to backup. `--exclude=/Music --exclude=/srv/dev-disk-by-uuid-09a0b6fd-1cd2-4e7c-a948-0cff7278adee` (change the uuid to your backup drive which you can see under storage, file systems![](images/2025-03-08-21-17-45-image.png)![](images/2025-03-08-21-06-44-image.png)
+   
+   3. Go to System, Backup, Schedule. Enable it and adjust the schedule if needed. I have set it so it runs once every week on sundays at 09:00.![](images/2025-03-08-21-19-27-image.png)
+   
+   4. Go do a manual backup to check if it works. Go to System, Backup, settings and click the backup button.![](images/2025-03-08-21-21-08-image.png)![](images/2025-03-08-22-44-05-image.png)
    
    
 
