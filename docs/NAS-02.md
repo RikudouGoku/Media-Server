@@ -17,8 +17,15 @@
   - [OS update](#os-update)
   - [Docker update](#docker-update)
 - [Drive failure protection](#drive-failure-protection)
-- - [SnapRAID](#snapraid)
+  - [SnapRAID](#snapraid)
   - [OMV-backup](#omv-backup)
+- [Memory](#memory)
+- [Statistics](#statistics)
+  - [Power consumption](#power-consumption)
+  - [Resource usage](#resource-usage)
+- [UPS](#ups)
+- [Troubleshooting](#troubleshooting)
+- [NAS comparison](#nas-comparison)
 
 ## Media server part 2, Orange Pi 5 Plus
 
@@ -981,9 +988,9 @@ I bought an 2 TB [NVME]([2TB WD_BLACK SN770 NVMe™ SSD | Western Digital](https
    
    
 
-# []{#anchor-15}Tweaks
+# Memory
 
-A. Swap/ZRAM memory, depending on how much RAM you got for your Pi, you
+Swap/ZRAM memory, depending on how much RAM you got for your Pi, you
 might want to adjust the swap memory settings. If you got the 16GB
 version like I do (or if you do not use much RAM and have plenty left
 available) and use SD/SSD/USB drive for the OS. I would recommend to
@@ -1003,7 +1010,7 @@ while also being faster than swap (although it does use some CPU
 resources which can lead to increased CPU usage but with 8-core CPU in
 the 5 Plus it should be negligible).
 
-Here are some suggested values (from ChatGPT)
+Here are some suggested values (from ChatGPT) (Use ChatGPT or another chatbot to guide you through this if you want.)
 
 | **RAM**   | **Workload**               | **Storage** | **Disk-based Swap**        | **ZRAM**              | **Swappiness** |
 | --------- | -------------------------- | ----------- | -------------------------- | --------------------- | -------------- |
@@ -1016,121 +1023,19 @@ Here are some suggested values (from ChatGPT)
 | **16 GB** | Light                      | SD/USB      | 256–512 MB disk-based swap | 512 MB–1 GB ZRAM      | 1–5            |
 |           | Heavy                      | SSD         | 2–4 GB disk-based swap     | Optional: 2–4 GB ZRAM | 10–15          |
 
-B. Disk setup, with the Pi there are a few different ways to setup the
-disks. In a configuration similar to mine with only a single NVME SSD
-and perhaps an USB or SD card that likely do not have the same storage
-capacity, I do not recommend using RAID in a setup like this, to reduce
-wear on the flash memory, to prevent a massive bottleneck since the
-array is mirrored and the performance is limited to the slowest drive
-(so if you use an USB flash stick mirrored with an NVME SSD, the speed
-will be reduced to the USB flash stick) and (minor) that it does not
-have any data redundancy built in.
-
-There are 2 ways to go about this. First is to use rsync and the other
-method is to use MergerFS + SnapRAID.
-
-With rsync you create 2 scheduled jobs for the source drive (NVME SSD)
-to the backup drive (USB stick or SD card). First job is to copy all
-files that have been changed/added but does NOT remove any files that
-have been deleted and set it to run say every 6 hours. Then the second
-job is to then synchronize so the data is identical on both drives (with
-delete trigger) and set it to run say every week.
-
-What this configuration does is that it allows you to both have hardware
-redundancy to protect against driver failure AND also data redundancy
-which is protection against accidental deletions or corruption, it also
-allows you to mix and match different drives even if they are of a
-different type (like HDD and SSD), although is not seamless when it
-comes to mixing different storage capacities and I would only use this
-method if you do not plan to add more drives into it as it is the
-simplest way to setup a 2 drive system.
-
-With MergerFS + SnapRAID, you use MergerFS to combine multiple drives
-into a single storage pool, making it look like you have a single large
-storage drive while the files are not split across the drives. Then
-SnapRAID adds redundancy into the storage pool by syncing parity
-information across multiple drives by picking one of the drives in the
-storage pool to act as the parity drive. Parity can be conceptualized
-like:\
-Drive 1 = 5\
-Drive 2 = 3\
-Parity Drive = X (calculated as the sum or XOR of the other drives\'
-values).
-
-The parity drive value (X) is calculated so it can recreate any missing
-value. For simplicity, we'll use a sum approach:\
-X=Drive 1+Drive 2\
-X=5+3=8\
-Drive 1 = 5\
-Drive 2 = 3\
-Parity Drive (X) = 8
-
-When one of the drive fails, it can simply recalculate what the lost
-value would be (assuming the parity drive is the same/bigger size than
-the other drives combined are).
-
-With raid 1, the effective storage capacity is determined by the
-smallest drive in the array, for example if you have a 500GB NVME SSD
-and a 2TB HDD drive, you will only be able to use 500GB for this array.
-
-With the rsync method, if you use the 500GB NVME SSD for the source and
-the 2TB HDD drive as backup you can backup the 500GB files on the SSD
-AND still use the rest of the unused 1,5TB data for other data, and if
-you add a fast USB stick, you may also setup another 2 rsync jobs for
-that USB stick and have it stored on the HDD as well.
-
-The downside with this rsync method is that files are not instantly
-mirrored and in this example, the worst that could happen would be that
-you lose the data that has been added since 6 hours ago (which you can
-easily adjust to your own needs if you want this to be longer/shorter)
-and then might need to manually point software that is using the files
-to the correct drive (such as your music folder for Navidrome).
-
-With the MergerFS + SnapRAID method with the 500GB NVME SSD and 2TB HDD
-drives, you need to pick one of the drives to be the parity drive,
-either pick the 2TB HDD drive and you have a full parity but you will
-not be able to use the 1,5TB leftover space here. If you pick the 500GB
-SSD as the parity drive, you will not be able to secure the full amount
-but no data wasted. So in this configuration, rsync is better because it
-allows you to use all the storage capacity both for redundancy and for
-actual data. But if you add more drives and/or if the drives have the
-same capacity, then this method will be much better as it works much
-more seamless and is easier to scale up.
-
-My recommendation would be to use the rsync method for the NVME SSD and
-have a separate HDD/USB stick for the backup location and use the
-MergerFS+SnapRAID if you plan to expand the storage with multiple HDDs
-into the multiple USB slots or via a DAS (direct attached storage) with
-multiple drives in it. I would use MergerFS+SnapRAID even if you had a
-hardware RAID compatible DAS since Raid 5 is not flexible and you can
-lose a lot of data. Example, if you have 4 HDDs at 16, 16, 14 and 10 TB
-each. With Raid 5 you only get 30 TB usable storage but
-MergerFS+SnapRAID would give you 40 TB usable storage, both methods will
-protect you against a single drive failure and you lose no data if its a
-single drive that dies on you.
-
-As I do not have any extra drives (and do not need it right now) here is
-a link to a guide on how to set up the MergerFS+SnapRaid method on
-OpenMediaVault
-
-<https://blog.sakuragawa.moe/better-home-storage-mergerfs-snapraid-on-openmediavault/>
-
-(and a big list for more information:
-<https://github.com/trapexit/mergerfs/wiki/Tutorials,-Articles,-Videos,-Podcasts>)
-
-I do however reuse the SD card that I used in the beginning of this post
-for the rsync method to mirror my docker folder, here is how
-
-rsync docker mirror
-
-1. -.-
-2. -.-
-
 # Statistics
 
 ## Power consumption
 
----
+Orange pi 5 Plus with 2 NVME SSDs, I added the second drive around January 8t and the power consumption hovers around the 6-8W range with under 5kW.h each month:![](images/2025-03-08-23-19-56-image.png)![](images/2025-03-08-23-17-11-image.png)
+
+For reference my Synology DS423+ with 2x16TB, 1x18TB HDD and 1x2TB NVME SSD drives consume:![](images/2025-03-08-23-22-01-image.png)
+
+Which after factoring in the 3 HDD drives (datasheet puts them at around 5W each) should mean that the Synology DS423+ consumes around 12W which is almost 2x the power consumption of the Orange Pi 5 Plus (despite having a weaker CPU).
+
+## Resource usage
+
+![](images/2025-03-08-23-26-04-image.png)![](images/2025-03-08-23-27-19-image.png)![](images/2025-03-08-23-27-32-image.png)![](images/2025-03-08-23-27-41-image.png)![](images/2025-03-08-23-28-26-image.png)
 
 # UPS
 
@@ -1142,18 +1047,18 @@ An UPS can be a mandatory need, depending on your use of the Pi and/or the frequ
 - If after a reboot, you cannot access the Pi via SSH, webui nor any docker containers and the ethernet port LED is OFF but the power LED is blinking normally, try to connect it to a monitor and check what it says. Here are some pictures on when it happened to me:![](images/2025-01-05-23-58-01-image.png)![](images/2025-01-05-23-58-14-image.png)![](images/2025-01-05-23-58-23-image.png)![](images/2025-01-05-23-58-42-image.png)
   Just type in `fsck.ext4 -f /dev/nvme0n1p1` and click "y" to all, then type in "reboot" at the end and it was fixed for me.
 
-# []{#anchor-16}NAS comparison
+# NAS comparison
 
-| **Category**                      | **Orange Pi 5 Plus**                                                                                                                                                                                                                                                                                                                           | **Orange Pi 5 Plus + DAS (TERRAMASTER D4-300)**                                                                                                                                                                                                                       | **Synology DS423+**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Price** (varies by region/time) | ≈ $225                                                                                                                                                                                                                                                                                                                                         | ≈ $395                                                                                                                                                                                                                                                                | $500                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Size**                          | Extremely tiny, fits in my palms                                                                                                                                                                                                                                                                                                               | Virtually the same size as the DS423+ except with the tiny Pi 5 Plus on top or beside it                                                                                                                                                                              | 2–3x larger in each direction compared with just the Pi 5 Plus                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Power usage**                   | Extremely low, idles at around 5.5W with this setup with a single 1TB NVME M.2 SSD. About 4.3kW.h/month.                                                                                                                                                                                                                                       | Extremely low, the D4-300 itself draws 2.8W ([source](https://www.reddit.com/r/DataHoarder/comments/151cyko/comment/js9l4jj/)) or 14W with 2x18TB WD Red Pro (same source), so add that to the 5.5W idle that the Pi 5 Plus have, and you are looking at around 20 W. | 8.45-28.3W according to Synology                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Scalability**                   | Decent, while you technically can upgrade RAM afterwards you would need to solder it yourself with the compatible memory chip (might be hard to find) but from 4 to 16GB RAM options. Dual 2.5Gbps Ethernet ports, cannot change CPU though. 1 NVME slot with 2 USB 3.0 connectors that you can use with external storage cases/DAS if needed. | With a DAS such as the D4-300 you will have more freedom in how you upgrade it later. For a performance increase, just replace the Pi (SBC), for more storage you can either just swap the DAS for a bigger one or just add another DAS as there are 2 USB 3.0 slots. | Very poor, officially supports up to 6GB RAM but I can personally confirm it works with 18GB RAM problem is that you will not get any customer service support if anything goes wrong (goes for their limited list of HDD that they officially support). Cannot change CPU and Ethernet ports are stuck on 1Gbps. Up to 4 storage bays and 2 NVME slots, does not support their own Expansion units. If you want an upgrade in storage you can get a DAS though like the D4-300. For better performance you need to swap out the entire NAS. |
-| **CPU Performance**               |                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Network Speed**                 |                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Security**                      |                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Ease of setup**                 |                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Category**                      | **Orange Pi 5 Plus**                                                                                                                                                                                                                                                                                                                           | **Orange Pi 5 Plus + DAS (TERRAMASTER D4-300)**                                                                                                                                                                                                                          | **Synology DS423+**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Price** (varies by region/time) | ≈ $225                                                                                                                                                                                                                                                                                                                                         | ≈ $395                                                                                                                                                                                                                                                                   | $500                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| **Size**                          | Extremely tiny, fits in my palms                                                                                                                                                                                                                                                                                                               | Virtually the same size as the DS423+ except with the tiny Pi 5 Plus on top or beside it                                                                                                                                                                                 | 2–3x larger in each direction compared with just the Pi 5 Plus                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Power usage**                   | Extremely low, idles at around 6-8W with this setup with a 1TB + 2TB NVME M.2 SSD. About 4.7-5.0kW.h/month.                                                                                                                                                                                                                                    | Extremely low, the D4-300 itself draws 2.8W ([source](https://www.reddit.com/r/DataHoarder/comments/151cyko/comment/js9l4jj/)) or 14W with 2x18TB WD Red Pro (same source), so add that to the 6-8W idle that the Pi 5 Plus have, and you are looking at more than 20 W. | 8.45-28.3W according to Synology. But around 12W in my case (after excluding HDDs)                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Scalability**                   | Decent, while you technically can upgrade RAM afterwards you would need to solder it yourself with the compatible memory chip (might be hard to find) but from 4 to 16GB RAM options. Dual 2.5Gbps Ethernet ports, cannot change CPU though. 1 NVME slot with 2 USB 3.0 connectors that you can use with external storage cases/DAS if needed. | With a DAS such as the D4-300 you will have more freedom in how you upgrade it later. For a performance increase, just replace the Pi (SBC), for more storage you can either just swap the DAS for a bigger one or just add another DAS as there are 2 USB 3.0 slots.    | Very poor, officially supports up to 6GB RAM but I can personally confirm it works with 18GB RAM problem is that you will not get any customer service support if anything goes wrong (goes for their limited list of HDD that they officially support). Cannot change CPU and Ethernet ports are stuck on 1Gbps. Up to 4 storage bays and 2 NVME slots, does not support their own Expansion units. If you want an upgrade in storage you can get a DAS though like the D4-300. For better performance you need to swap out the entire NAS. |
+| **CPU Performance**               | Great efficiency and can handle some heavier docker containers (such as game servers like Azeroth core Wow)                                                                                                                                                                                                                                    | Great efficiency and can handle some heavier docker containers (such as game servers like Azeroth core Wow)                                                                                                                                                              | Decent and works if only used as a NAS but with many or heavier docker containers and it is obvious it is slow.                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Network Speed**                 | Has dual 2.5Gbps Ethernet ports so clearly faster than the 1Gbps on the Synology                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Security**                      |                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Ease of setup**                 |                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 Note: the Pi 5 Plus setup is with the 16GB RAM option with the case, sd
 card, heatsink, fan, UPS, batteries and charger. Does not include
